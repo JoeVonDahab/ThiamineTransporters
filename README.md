@@ -20,6 +20,9 @@ The primary objectives of this research are to:
 * Integrate these multi-modal embeddings (DNA and protein) to capture comprehensive sequence information and potentially extract gene-specific patterns related to clinical significance.
 * Build a classifier to accurately categorize variants into classes such as Pathogenic, Likely Pathogenic, Benign, Likely Benign, and Normal.
 
+  ![SNP-1](https://github.com/user-attachments/assets/632a8c10-f3a4-4f8c-8941-565be8f15bd7)
+
+
 ## 3. Dataset and Preprocessing
 
 * **Data Source:** Initial variant data is sourced from files like `SLC19A2_dSNP.txt` (downloaded from NCBI's dbSNP database), which contains columns such as `#chr`, `pos`, `variation`, `variant_type`, `snp_id`, `clinical_significance`, `validation_status`, `function_class`, `gene`, and `frequency`. Additional data is sourced from ClinVar.
@@ -73,6 +76,8 @@ The proposed model architecture involves the following key steps:
             1.  Benign/Likely Benign (original labels: 1, 2)
             2.  Pathogenic/Likely Pathogenic (original labels: -1, -2)
             3.  Others (e.g., Normal, original label: 3)
+               
+![image](https://github.com/user-attachments/assets/c5218ca5-2be3-490c-84c3-ca3dbd91b77d)
 
 ## 5. Achieved Outcomes & Results
 
@@ -94,7 +99,7 @@ FINAL Classification Report (Individual Classes):
            macro avg       0.78      0.80      0.77       126
         weighted avg       0.92      0.90      0.91       126
 ```
-![image](https://github.com/user-attachments/assets/d7025100-ddfe-4c3b-871f-51e709ff5dcb)
+![image](https://github.com/user-attachments/assets/34dc73cf-0d14-4407-aa12-c933e24a7c18)
 
 --- Final Group Evaluation ---
 
@@ -112,40 +117,26 @@ Pathogenic/Likely Pathogenic       0.64      0.70      0.67        10
                    macro avg       0.84      0.86      0.85       126
                 weighted avg       0.92      0.91      0.91       126
 ```
-![image](https://github.com/user-attachments/assets/fd249cf4-0e91-4f04-8f68-26d6a2b727f3)
+![image](https://github.com/user-attachments/assets/99d3223d-37fd-48a5-9d02-b52e77e9759b)
 
 
 ### 5.2. Prediction on Unlabeled Data (Applying the Trained Model)
 
 Summary of predictions for all processed (previously unlabeled) samples:
 ```
-Predicted as 'Neg Med (-2)' (Original value: -2): 260 samples
-Predicted as 'Neg Low (-1)' (Original value: -1): 425 samples
-Predicted as 'Pos Low (1)' (Original value: 1): 9572 samples
-Predicted as 'Pos Med (2)' (Original value: 2): 454 samples
-Predicted as 'Pos High (3)' (Original value: 3): 2216 samples
+Predicted as 'Neg Med (-2)' : 260 samples
+Predicted as 'Neg Low (-1)' : 425 samples
+Predicted as 'Pos Low (1)' : 9572 samples
+Predicted as 'Pos Med (2)' : 454 samples
+Predicted as 'Pos High (3)' : 2216 samples
 ```
-*(Note: "Original value" here refers to the numerical mapping of the predicted class name.)*
+![image](https://github.com/user-attachments/assets/146a7c6c-a9c6-42fd-9242-092f420d3fca)
 
-### 5.3. Visualizations 
+![image](https://github.com/user-attachments/assets/d70e191e-2562-4178-98a9-c71f5835e65d)
 
-* **Training & Validation Performance Plots:**
-    `![Training and Validation Performance Curves](placeholder_training_curves.png)`
-    *(Description: Plot showing training loss, validation loss, training accuracy, and validation accuracy across epochs for the best performing model.)*
 
-* **Confusion Matrix (Individual Classes - Test Set):**
-    `![Confusion Matrix - Individual Classes](placeholder_cm_individual.png)`
-    *(Description: Heatmap visualization of the confusion matrix for the 5-class prediction on the test set, corresponding to the classification report above.)*
 
-* **Confusion Matrix (Grouped Classes - Test Set):**
-    `![Confusion Matrix - Grouped Classes](placeholder_cm_grouped.png)`
-    *(Description: Heatmap visualization of the confusion matrix for the 3-group prediction on the test set, corresponding to the grouped classification report above.)*
-
-* **Distribution of Predicted Labels for Unlabeled Data:**
-    `![Distribution of Predicted Labels for Unlabeled Dataset](placeholder_prediction_distribution.png)`
-    *(Description: Bar chart illustrating the number of samples predicted into each of the 5 classes for the initially unlabeled dataset.)*
-
-## 6. Project Repository Structure (Example for SLC19A2)
+## 6. Project Repository Structure
 
 The project is organized with main folders for each gene (e.g., SLC19A2, SLC19A3).
 
