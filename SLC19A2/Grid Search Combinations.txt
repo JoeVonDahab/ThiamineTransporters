@@ -1,0 +1,164 @@
+--- Grid Search Combination 1022/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'WeightedLossCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.001}
+ E1 - TrL:1.552, Vl L:1.243, Vl A:0.7857
+ E50 - TrL:0.025, Vl L:1.066, Vl A:0.9444
+ EStop@83
+Combo 1022 Best Val Acc: 0.9603
+!!! New Best Overall: 0.9603 !!!
+
+--- Grid Search Combination 1057/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.361, Vl L:0.308, Vl A:0.7302
+ E50 - TrL:0.006, Vl L:0.280, Vl A:0.9444
+ EStop@93
+Combo 1057 Best Val Acc: 0.9603
+
+--- Grid Search Combination 1076/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.001}
+ E1 - TrL:0.355, Vl L:0.313, Vl A:0.8333
+ E50 - TrL:0.007, Vl L:0.288, Vl A:0.9524
+ EStop@78
+Combo 1076 Best Val Acc: 0.9603
+
+--- Grid Search Combination 1165/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.382, Vl L:0.357, Vl A:0.7857
+ E50 - TrL:0.011, Vl L:0.192, Vl A:0.9444
+ E100 - TrL:0.005, Vl L:0.214, Vl A:0.9603
+ EStop@121
+Combo 1165 Best Val Acc: 0.9683
+!!! New Best Overall: 0.9683 !!!
+
+--- Grid Search Combination 1185/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.0}
+ E1 - TrL:0.373, Vl L:0.362, Vl A:0.7302
+ E50 - TrL:0.012, Vl L:0.218, Vl A:0.9286
+ EStop@96
+Combo 1185 Best Val Acc: 0.9603
+
+--- Grid Search Combination 1185/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.0}
+ E1 - TrL:0.373, Vl L:0.362, Vl A:0.7302
+ E50 - TrL:0.012, Vl L:0.218, Vl A:0.9286
+ EStop@96
+Combo 1185 Best Val Acc: 0.9603
+
+-- Grid Search Combination 1561/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.9999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.341, Vl L:0.306, Vl A:0.7381
+ E50 - TrL:0.005, Vl L:0.292, Vl A:0.9524
+ EStop@82
+Combo 1561 Best Val Acc: 0.9603
+
+--- Grid Search Combination 1563/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.9999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.0}
+ E1 - TrL:0.367, Vl L:0.305, Vl A:0.7619
+ E50 - TrL:0.005, Vl L:0.306, Vl A:0.9603
+ EStop@68
+Combo 1563 Best Val Acc: 0.9603
+
+--- Grid Search Combination 1597/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.9999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.374, Vl L:0.345, Vl A:0.7302
+ E50 - TrL:0.012, Vl L:0.202, Vl A:0.9365
+ E100 - TrL:0.004, Vl L:0.244, Vl A:0.9603
+ EStop@108
+Combo 1597 Best Val Acc: 0.9683
+
+--- Grid Search Combination 1598/3456 ---
+Parameters: {'activation_fn': 'ReLU', 'batch_size': 128, 'cb_beta': 0.9999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.001}
+ E1 - TrL:0.388, Vl L:0.344, Vl A:0.2778
+ E50 - TrL:0.013, Vl L:0.183, Vl A:0.9206
+ E100 - TrL:0.003, Vl L:0.229, Vl A:0.9683
+ EStop@107
+Combo 1598 Best Val Acc: 0.9683
+
+--- Grid Search Combination 2624/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [1024, 512], 'imbalance_strategy': 'WeightedSampler', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.001}
+ E1 - TrL:1.329, Vl L:1.364, Vl A:0.7222
+ E50 - TrL:0.434, Vl L:0.570, Vl A:0.9286
+ EStop@75
+Combo 2624 Best Val Acc: 0.9603
+
+--- Grid Search Combination 2677/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.370, Vl L:0.334, Vl A:0.6825
+ E50 - TrL:0.014, Vl L:0.202, Vl A:0.9444
+ EStop@95
+Combo 2677 Best Val Acc: 0.9683
+
+--- Grid Search Combination 2749/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'WeightedLossCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:1.502, Vl L:1.255, Vl A:0.7381
+ E50 - TrL:0.029, Vl L:1.281, Vl A:0.9524
+ E100 - TrL:0.022, Vl L:1.360, Vl A:0.9524
+ EStop@101
+Combo 2749 Best Val Acc: 0.9603
+
+--- Grid Search Combination 2750/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'WeightedLossCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.001}
+ E1 - TrL:1.445, Vl L:1.255, Vl A:0.7302
+ E50 - TrL:0.025, Vl L:1.180, Vl A:0.9603
+ EStop@80
+Combo 2750 Best Val Acc: 0.9603
+
+
+--- Grid Search Combination 2751/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'WeightedLossCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.0}
+ E1 - TrL:1.470, Vl L:1.294, Vl A:0.8254
+ E50 - TrL:0.027, Vl L:1.223, Vl A:0.9444
+ EStop@82
+Combo 2751 Best Val Acc: 0.9603
+
+--- Grid Search Combination 2839/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'WeightedSampler', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:1.402, Vl L:1.455, Vl A:0.7302
+ E50 - TrL:0.423, Vl L:0.565, Vl A:0.9365
+ EStop@77
+Combo 2839 Best Val Acc: 0.9603
+
+--- Grid Search Combination 2857/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'WeightedLossCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:1.554, Vl L:1.439, Vl A:0.7540
+ E50 - TrL:0.045, Vl L:0.873, Vl A:0.9444
+ EStop@95
+Combo 2857 Best Val Acc: 0.9603
+
+--- Grid Search Combination 2911/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.354, Vl L:0.362, Vl A:0.7778
+ E50 - TrL:0.013, Vl L:0.224, Vl A:0.9365
+ EStop@99
+Combo 2911 Best Val Acc: 0.9603
+
+--- Grid Search Combination 3073/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.45, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'WeightedLossCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:1.500, Vl L:1.293, Vl A:0.7698
+ E50 - TrL:0.050, Vl L:1.148, Vl A:0.9206
+ E100 - TrL:0.017, Vl L:1.227, Vl A:0.9444
+ EStop@103
+Combo 3073 Best Val Acc: 0.9603
+
+--- Grid Search Combination 3127/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.45, 'hidden_dims': [2048, 1024], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.377, Vl L:0.329, Vl A:0.7063
+ E50 - TrL:0.012, Vl L:0.270, Vl A:0.9127
+ E100 - TrL:0.004, Vl L:0.300, Vl A:0.9365
+ EStop@108
+Combo 3127 Best Val Acc: 0.9603
+
+--- Grid Search Combination 3165/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.999, 'dropout_rate': 0.45, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'WeightedSampler', 'label_smoothing': 0.1, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.0}
+ E1 - TrL:1.493, Vl L:1.498, Vl A:0.7619
+ E50 - TrL:0.445, Vl L:0.584, Vl A:0.9206
+ E100 - TrL:0.424, Vl L:0.557, Vl A:0.9444
+ EStop@128
+Combo 3165 Best Val Acc: 0.9603
+
+--- Grid Search Combination 3325/3456 ---
+Parameters: {'activation_fn': 'LeakyReLU', 'batch_size': 128, 'cb_beta': 0.9999, 'dropout_rate': 0.3, 'hidden_dims': [2048, 1024, 512], 'imbalance_strategy': 'ClassBalancedCE', 'label_smoothing': 0.0, 'lr': 5e-05, 'model_type': 'Simple', 'optimizer': 'AdamW', 'weight_decay': 0.01}
+ E1 - TrL:0.377, Vl L:0.348, Vl A:0.6587
+ E50 - TrL:0.012, Vl L:0.191, Vl A:0.9286
+ E100 - TrL:0.004, Vl L:0.234, Vl A:0.9524
+ EStop@130
+Combo 3325 Best Val Acc: 0.9603
