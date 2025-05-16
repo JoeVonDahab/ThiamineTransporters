@@ -1,4 +1,4 @@
-# Project: High Accuracy Prediction of DNA Variants Effects using a Multi-Modal Deep Learning Approach
+![image](https://github.com/user-attachments/assets/54f5da45-2a9f-43dd-a499-88fa2ce5e35a)# Project: High Accuracy Prediction of DNA Variants Effects using a Multi-Modal Deep Learning Approach
 
 **Author:** Youssef Abo-Dahab, Pharm.D, M.S Candidate
 **Affiliation:** University of Califronia, San Francisco, AICD3 Program
@@ -94,6 +94,7 @@ FINAL Classification Report (Individual Classes):
            macro avg       0.78      0.80      0.77       126
         weighted avg       0.92      0.90      0.91       126
 ```
+![image](https://github.com/user-attachments/assets/d7025100-ddfe-4c3b-871f-51e709ff5dcb)
 
 --- Final Group Evaluation ---
 
@@ -111,6 +112,8 @@ Pathogenic/Likely Pathogenic       0.64      0.70      0.67        10
                    macro avg       0.84      0.86      0.85       126
                 weighted avg       0.92      0.91      0.91       126
 ```
+![image](https://github.com/user-attachments/assets/fd249cf4-0e91-4f04-8f68-26d6a2b727f3)
+
 
 ### 5.2. Prediction on Unlabeled Data (Applying the Trained Model)
 
@@ -124,7 +127,7 @@ Predicted as 'Pos High (3)' (Original value: 3): 2216 samples
 ```
 *(Note: "Original value" here refers to the numerical mapping of the predicted class name.)*
 
-### 5.3. Visualizations (Placeholders)
+### 5.3. Visualizations 
 
 * **Training & Validation Performance Plots:**
     `![Training and Validation Performance Curves](placeholder_training_curves.png)`
