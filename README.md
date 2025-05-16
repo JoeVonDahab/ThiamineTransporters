@@ -3,7 +3,7 @@
 **Author:** Youssef Abo-Dahab, Pharm.D, M.S Candidate
 **Affiliation:** University of Califronia, San Francisco, AICD3 Program
 **Lab:** Giacomini-Chun Lab
-**Date (from presentation):** May 16, 2025 (Note: Project details updated based on recent information)
+**Date:** May 16, 2025 (Note: Project details updated based on recent information)
 
 ## 1. Motivation
 
@@ -63,7 +63,7 @@ The proposed model architecture involves the following key steps:
     * **Input Layer:** Takes the 6400-dimensional fused embedding.
     * **Hidden Layers:** Consist of multiple layers with linear transformations, activation functions (e.g., ReLU), Batch Normalization, and Dropout for regularization. A common configuration explored is `[Input -> 2048 -> 1024 -> 512 -> Output]`, though other configurations like `[Input -> 512 -> 256 -> Output]` were also considered.
     * **Output Layer:** Transforms the final hidden layer representation to the number of output classes (5 for the distinct categories), followed by a Softmax activation function to produce probabilities for each class.
-    * **Output Classes:** Pathogenic, Likely Pathogenic, Benign, Likely Benign, Normal.
+    * **Output Classes:** Pathogenic, Likely Pathogenic, Benign, Likely Benign, Normal. (Represented numerically as -2, -1, 1, 2, 3 respectively, with 'Normal' sometimes used interchangeably with 'Pos High (3)' depending on context).
 
 5.  **Training and Evaluation:**
     * The model is trained to predict the clinical significance of DNA variants using the fused embeddings.
@@ -74,28 +74,92 @@ The proposed model architecture involves the following key steps:
             2.  Pathogenic/Likely Pathogenic (original labels: -1, -2)
             3.  Others (e.g., Normal, original label: 3)
 
-## 5. Achieved Outcomes
+## 5. Achieved Outcomes & Results
 
-* The multi-modal model achieved **90% accuracy** across the 5 distinct clinical significance labels (Pathogenic, Likely Pathogenic, Benign, Likely Benign, Normal).
-* When predictions were grouped into 3 broader categories (Benign/Likely Benign, Pathogenic/Likely Pathogenic, Others/Normal), the model achieved **92% accuracy**.
-* These results indicate strong performance in differentiating various classes of DNA variant effects, surpassing preliminary results and demonstrating the effectiveness of the multi-modal approach.
+### 5.1. Model Performance on Test Set (Best Performing Model)
+
+FINAL Test Accuracy: **0.9048**
+
+FINAL Classification Report (Individual Classes):
+```
+                     precision    recall  f1-score   support
+
+        Neg Med (-2)       0.83      0.62      0.71         8
+        Neg Low (-1)       0.20      0.50      0.29         2
+         Pos Low (1)       0.94      0.86      0.90        56
+         Pos Med (2)       1.00      1.00      1.00         5
+        Pos High (3)       0.93      1.00      0.96        55
+
+            accuracy                           0.90       126
+           macro avg       0.78      0.80      0.77       126
+        weighted avg       0.92      0.90      0.91       126
+```
+
+--- Final Group Evaluation ---
+
+Final Grouped Test Accuracy: **0.9127**
+
+Final Grouped Classification Report:
+```
+                              precision    recall  f1-score   support
+
+        Benign/Likely Benign       0.95      0.87      0.91        61
+Pathogenic/Likely Pathogenic       0.64      0.70      0.67        10
+                      Others       0.93      1.00      0.96        55
+
+                    accuracy                           0.91       126
+                   macro avg       0.84      0.86      0.85       126
+                weighted avg       0.92      0.91      0.91       126
+```
+
+### 5.2. Prediction on Unlabeled Data (Applying the Trained Model)
+
+Summary of predictions for all processed (previously unlabeled) samples:
+```
+Predicted as 'Neg Med (-2)' (Original value: -2): 260 samples
+Predicted as 'Neg Low (-1)' (Original value: -1): 425 samples
+Predicted as 'Pos Low (1)' (Original value: 1): 9572 samples
+Predicted as 'Pos Med (2)' (Original value: 2): 454 samples
+Predicted as 'Pos High (3)' (Original value: 3): 2216 samples
+```
+*(Note: "Original value" here refers to the numerical mapping of the predicted class name.)*
+
+### 5.3. Visualizations (Placeholders)
+
+* **Training & Validation Performance Plots:**
+    `![Training and Validation Performance Curves](placeholder_training_curves.png)`
+    *(Description: Plot showing training loss, validation loss, training accuracy, and validation accuracy across epochs for the best performing model.)*
+
+* **Confusion Matrix (Individual Classes - Test Set):**
+    `![Confusion Matrix - Individual Classes](placeholder_cm_individual.png)`
+    *(Description: Heatmap visualization of the confusion matrix for the 5-class prediction on the test set, corresponding to the classification report above.)*
+
+* **Confusion Matrix (Grouped Classes - Test Set):**
+    `![Confusion Matrix - Grouped Classes](placeholder_cm_grouped.png)`
+    *(Description: Heatmap visualization of the confusion matrix for the 3-group prediction on the test set, corresponding to the grouped classification report above.)*
+
+* **Distribution of Predicted Labels for Unlabeled Data:**
+    `![Distribution of Predicted Labels for Unlabeled Dataset](placeholder_prediction_distribution.png)`
+    *(Description: Bar chart illustrating the number of samples predicted into each of the 5 classes for the initially unlabeled dataset.)*
 
 ## 6. Project Repository Structure (Example for SLC19A2)
 
-The project is organized with main folders for each gene (e.g., SLC19A2, SLC19A3). An example structure for the `SLC19A2` folder includes:
+The project is organized with main folders for each gene (e.g., SLC19A2, SLC19A3).
 
-* `SLC19A2/`
-    * `SLC19A2_dSNP.txt`: Original raw variant data downloaded from NCBI's dbSNP database.
-    * `exons_data_20250505_171511.csv`: Contains exon coordinates for SLC19A2 (used in data preparation, e.g., for reverse complementing if gene is on negative strand).
-    * `Prepating_Data_SLC19A2.ipynb`: Jupyter notebook with Python code for data preprocessing. This script takes the raw `SLC19A2_dSNP.txt` and `exons_data`, generates simulated DNA, RNA, and protein sequences for each SNP, and produces the final dataset.
-    * `final_dataset/`
-        * `final_ready20250505_171511.csv`: The final prepared dataset in CSV format, containing sequences and labels.
-        * `final_ready20250505_171511.pkl`: The final prepared dataset in Python pickle format, used for training.
-    * `df_labeled.csv`: A subset of the final dataset containing only labeled data used for training and validation.
-    * `csv_labeled_data_cleaned.pkl`: Cleaned version of the labeled data in pickle format.
-    * `Training & Prediction.ipynb`: Jupyter notebook containing Python code for model training, evaluation, and prediction on unlabeled data.
-    * `models/`
-        * `final_model_slc19a21747199044.pt`: The saved, trained PyTorch model file for SLC19A2, achieving the reported accuracies.
-    * `results/`
-        * `predictions_with_details.csv`: Output file containing predicted labels and probabilities for unlabeled data.
+| File/Folder Path                      | Description                                                                                                                               |
+| :------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| `SLC19A2/`                            | Main directory for the SLC19A2 gene-specific project.                                                                                     |
+| `SLC19A2/SLC19A2_dSNP.txt`            | Original raw variant data downloaded from NCBI's dbSNP database for the SLC19A2 gene.                                                       |
+| `SLC19A2/exons_data_20250505_171511.csv` | Contains exon coordinates for SLC19A2; used in data preparation (e.g., for reverse complementing if gene is on negative strand).        |
+| `SLC19A2/Prepating_Data_SLC19A2.ipynb`| Jupyter notebook with Python code for data preprocessing. Takes raw data, generates simulated DNA, RNA, and protein sequences, produces final dataset. |
+| `SLC19A2/final_dataset/`              | Directory containing the final processed datasets.                                                                                        |
+| `SLC19A2/final_dataset/final_ready20250505_171511.csv` | The final prepared dataset in CSV format, including sequences and labels for SLC19A2.                                      |
+| `SLC19A2/final_dataset/final_ready20250505_171511.pkl` | The final prepared dataset in Python pickle format for SLC19A2, used directly for training.                                |
+| `SLC19A2/df_labeled.csv`              | A subset of the final dataset (CSV) containing only labeled data used for training and validation for SLC19A2.                           |
+| `SLC19A2/csv_labeled_data_cleaned.pkl`| Cleaned version of the labeled data in pickle format for SLC19A2.                                                                         |
+| `SLC19A2/Training & Prediction.ipynb` | Jupyter notebook containing Python code for model training, evaluation, and prediction on unlabeled data for SLC19A2.                     |
+| `SLC19A2/models/`                     | Directory for saved trained models.                                                                                                       |
+| `SLC19A2/models/final_model_slc19a21747199044.pt` | The saved, trained PyTorch model file for SLC19A2, achieving the reported accuracies.                                          |
+| `SLC19A2/results/`                    | Directory for storing prediction results and other outputs.                                                                               |
+| `SLC19A2/results/predictions_with_details.csv` | Output file containing predicted labels and associated probabilities for the unlabeled data portion of SLC19A2.                     |
 
