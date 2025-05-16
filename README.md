@@ -1,9 +1,9 @@
 # Project: High Accuracy Prediction of DNA Variants Effects using a Multi-Modal Deep Learning Approach
 
-**Author:** Youssef Abo-Dahab, Pharm.D, M.S Candidate.
-**Affiliation:** University of Califronia, San Francisco, AICD3 Program.
-**Lab:** Giacomini-Chun Lab.
-**Date:** May 16, 2025.
+* **Author:** Youssef Abo-Dahab, Pharm.D, M.S Candidate.
+* **Affiliation:** University of Califronia, San Francisco, AICD3 Program.
+* **Lab:** Giacomini-Chun Lab.
+* **Date:** May 16, 2025.
 
 ## 1. Motivation
 
