@@ -41,7 +41,7 @@ The primary objectives of this research are to:
     * `protein_sequence`: The translated protein sequence derived from the `generated_dna`.
 * **Labels:**
     * Clinical significance of variants is obtained from sources like ClinVar and the input `dSNP.txt` file.
-    * These are mapped to numerical values for model training. The primary classes used for the 5-label classification are: Pathogenic (-2), Likely Pathogenic (-1), Likely Benign (1), Benign (2), and Normal (3). "Uncertain Significance" (0) is typically filtered out before training or handled as a separate category if needed.
+    * These are mapped to numerical values for model training. The primary classes used for the 5-label classification are: Pathogenic (-2), Likely Pathogenic (-1), Likely Benign (1), Benign (2), and Normal (3). "Uncertain Significance" (0) is filtered out before training.
 * **Final Dataset:** Prepared datasets (e.g., `final_ready20250505_171511.pkl`) contain the processed DNA sequences, protein sequences, and their corresponding numerical labels, ready for model training.
 
 ## 4. Methodology: Multi-Modal Deep Learning Architecture
@@ -50,11 +50,11 @@ The proposed model architecture involves the following key steps:
 
 1.  **DNA Embeddings:**
     * The `generated_dna` sequences are fed into a pretrained **DNABERT-2** model.
-    * This model generates DNA embeddings (representations of the DNA sequence). The typical dimension for these embeddings is 3840 (achieved through methods like splitting sequences into parts, embedding each part, and concatenating, or using specific pooling over the sequence tokens).
+    * This model generates DNA embeddings (representations of the DNA sequence). The typical dimension for these embeddings is 3840 (achieved through methods like splitting sequences into parts, embedding each part, and concatenating).
 
 2.  **Protein Embeddings:**
     * The `protein_sequence` (derived from the variant DNA) is processed by a pretrained **ESM-2** model (e.g., `esm2_t36_3B_UR50D`).
-    * This model generates protein embeddings, typically with a dimension of 2560.
+    * This model generates protein embeddings with a dimension of 2560.
 
 3.  **Embedding Scaling and Fusion:**
     * Both DNA and protein embeddings are independently scaled (e.g., using `StandardScaler` fitted on the training set).
