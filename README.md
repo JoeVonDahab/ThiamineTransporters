@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/54f5da45-2a9f-43dd-a499-88fa2ce5e35a)# Project: High Accuracy Prediction of DNA Variants Effects using a Multi-Modal Deep Learning Approach
+# Project: High Accuracy Prediction of DNA Variants Effects using a Multi-Modal Deep Learning Approach
 
 **Author:** Youssef Abo-Dahab, Pharm.D, M.S Candidate
 **Affiliation:** University of Califronia, San Francisco, AICD3 Program
