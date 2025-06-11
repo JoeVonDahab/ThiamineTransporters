@@ -41,7 +41,7 @@ The primary objectives of this research are to:
 
 ## 5. Methodology
 The model architecture integrates three data sources through distinct processing pipelines.
-![ChatGPT Image Jun 10, 2025, 06_15_10 PM](https://github.com/user-attachments/assets/07124a5f-5fbd-4f3f-8558-8653319e1f51)
+![Editor _ Mermaid Chart-2025-06-11-003943](https://github.com/user-attachments/assets/d5b1ee91-ebcb-4cdf-bef9-a04de2acb60d)
 
 ### 5.1. DNA Embeddings (DNABERT-2)
 The full DNA sequences (gene + flanking regions) containing each variant were input into a pretrained **DNABERT-2** model. To handle long sequences, each sequence was split into multiple parts, embedded individually, and the resulting vectors were concatenated to produce a final DNA embedding with a dimension of **3840**.
