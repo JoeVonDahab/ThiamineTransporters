@@ -6,6 +6,7 @@
 **Date:** June 10, 2025.
 
 ---
+![ChatGPT Image Jun 10, 2025, 06_15_10 PM](https://github.com/user-attachments/assets/fa4fd7dc-06b1-4a62-b60c-456ba71d7f46)
 
 ## 1. Abstract
 A significant challenge in genomics is the interpretation of missense variants, with millions cataloged but only a small fraction clinically classified. This project addresses this gap by developing a sophisticated, gene-specific, multi-modal deep learning framework to predict the clinical significance of variants in the thiamine transporter genes **SLC19A2** and **SLC19A3**. By integrating three distinct data modalities—DNA sequence embeddings from **DNABERT-2**, protein structure embeddings from **ESM-2**, and engineered tabular features from population frequency and validation studies—the model achieves a comprehensive understanding of each variant. The resulting models demonstrate high accuracy, with test accuracies of **91.3%** for **SLC19A2** and **90.9%** for **SLC19A3**, significantly outperforming traditional prediction tools and successfully classifying thousands of previously un-annotated variants.
@@ -40,6 +41,7 @@ The primary objectives of this research are to:
 
 ## 5. Methodology
 The model architecture integrates three data sources through distinct processing pipelines.
+![ChatGPT Image Jun 10, 2025, 06_15_10 PM](https://github.com/user-attachments/assets/07124a5f-5fbd-4f3f-8558-8653319e1f51)
 
 ### 5.1. DNA Embeddings (DNABERT-2)
 The full DNA sequences (gene + flanking regions) containing each variant were input into a pretrained **DNABERT-2** model. To handle long sequences, each sequence was split into multiple parts, embedded individually, and the resulting vectors were concatenated to produce a final DNA embedding with a dimension of **3840**.
@@ -69,6 +71,9 @@ The trained models were evaluated on unseen test data and used to classify previ
 ### 6.1. SLC19A3 Model Performance
 -   **Overall Test Accuracy:** 90.9%
 -   **Grouped Test Accuracy (Benign vs. Pathogenic):** 95.4%
+![confusion](https://github.com/user-attachments/assets/be1f2155-6ec5-47ca-b445-95594d9ea579)
+![confusion_grouped](https://github.com/user-attachments/assets/35a4906e-d0bb-44e7-ab25-d5d4fa9ca617)
+
 
 #### Classification Report (Individual Classes)
 | Class             | Precision | Recall | F1-Score | Support |
@@ -81,15 +86,20 @@ The trained models were evaluated on unseen test data and used to classify previ
 | **Weighted Avg** | **0.91** | **0.91** | **0.91** | **175** |
 
 #### Prediction on Variants of Uncertain Significance
+![prediction_unlabaled](https://github.com/user-attachments/assets/a5310637-741d-4743-a365-e4639ed22149)
+
 -   **Pathogenic:** 289 samples
 -   **Likely Pathogenic:** 479 samples
 -   **Likely Benign:** 13,734 samples
 -   **Benign:** 7,629 samples
 -   **Normal Sequence:** 1,523 samples (control sequences)
+![prediciton_unlabeled_confidance](https://github.com/user-attachments/assets/8f895b13-cb6d-40a7-84b9-54a64d60f35e)
 
 ### 6.2. SLC19A2 Model Performance
 -   **Overall Test Accuracy:** 91.3%
 -   **Grouped Test Accuracy (Benign vs. Pathogenic):** 92.9%
+![confusion_SLC19A2](https://github.com/user-attachments/assets/83caa088-dfc3-4db8-a88a-49c43a453dab)
+![confusion_grouped](https://github.com/user-attachments/assets/d17f9ab5-0df3-4b29-80bb-3a947808b746)
 
 #### Classification Report (Individual Classes)
 | Class             | Precision | Recall | F1-Score | Support |
@@ -100,6 +110,9 @@ The trained models were evaluated on unseen test data and used to classify previ
 | Benign            | 1.00      | 0.80   | 0.89     | 5       |
 | Normal Sequence   | 1.00      | 1.00   | 1.00     | 55      |
 | **Weighted Avg** | **0.95** | **0.91** | **0.92** | **126** |
+
+![prediction_main](https://github.com/user-attachments/assets/e7b9fa0d-317a-494d-9f2c-955a39c788df)
+![probability_prediction_main](https://github.com/user-attachments/assets/c6316267-c598-4a25-9dd0-19c33edbe0db)
 
 ---
 
