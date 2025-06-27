@@ -21,13 +21,19 @@ A significant challenge in genomics is the interpretation of missense variants, 
 ---
 
 ## 3. Research Objective
+## 3. Research Objective
 The primary objectives of this research are to:
 
 1.  Develop customized prediction models tailored for specific genes of interest (**SLC19A2**, **SLC19A3**) to improve the predictability of variant effects.
 2.  Leverage pretrained deep learning models (**DNABERT-2** for DNA and **ESM-2** for protein sequences) to generate rich, informative embeddings.
 3.  Integrate multi-modal data (DNA embeddings, protein embeddings, and tabular features) to capture comprehensive information for each variant.
 4.  Build a classifier to accurately categorize variants into five classes: Pathogenic, Likely Pathogenic, Benign, Likely Benign, and Normal.
+1.  Develop customized prediction models tailored for specific genes of interest (**SLC19A2**, **SLC19A3**) to improve the predictability of variant effects.
+2.  Leverage pretrained deep learning models (**DNABERT-2** for DNA and **ESM-2** for protein sequences) to generate rich, informative embeddings.
+3.  Integrate multi-modal data (DNA embeddings, protein embeddings, and tabular features) to capture comprehensive information for each variant.
+4.  Build a classifier to accurately categorize variants into five classes: Pathogenic, Likely Pathogenic, Benign, Likely Benign, and Normal.
 
+---
 ---
 
 ## 4. Dataset and Preprocessing
