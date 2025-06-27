@@ -75,6 +75,16 @@ The trained models were evaluated on unseen test data and used to classify previ
 ![confusion](https://github.com/user-attachments/assets/be1f2155-6ec5-47ca-b445-95594d9ea579)
 ![confusion_grouped](https://github.com/user-attachments/assets/35a4906e-d0bb-44e7-ab25-d5d4fa9ca617)
 
+#### Classification Report (Grouped Classes)
+
+| Class                        | Precision | Recall | F1-Score | Support |
+|------------------------------|-----------|--------|----------|---------|
+| Benign/Likely Benign         | 0.96      | 0.97   | 0.97     | 74      |
+| Pathogenic/Likely Pathogenic | 0.80      | 0.73   | 0.76     | 11      |
+| Others                       | 1.00      | 1.00   | 1.00     | 90      |
+| **Accuracy**                 |           |        | **0.97** | **175** |
+| **Weighted Avg**             | 0.97      | 0.97   | 0.97     | 175     |
+
 #### Binary Classification Performance (Benign vs. Pathogenic)
 
 | Metric        | Value    | Description                                                      |
@@ -86,26 +96,13 @@ The trained models were evaluated on unseen test data and used to classify previ
 | **Specificity** | 97.30% | Proportion of benign variants correctly identified               |
 | **AUC**       | 85.14%   | Area under the ROC curve (discrimination ability)                |
 
-
-#### Classification Report (Grouped Classes)
-
-| Class                        | Precision | Recall | F1-Score | Support |
-|------------------------------|-----------|--------|----------|---------|
-| Benign/Likely Benign         | 0.96      | 0.97   | 0.97     | 74      |
-| Pathogenic/Likely Pathogenic | 0.80      | 0.73   | 0.76     | 11      |
-| Others                       | 1.00      | 1.00   | 1.00     | 90      |
-| **Accuracy**                 |           |        | **0.97** | **175** |
-| **Weighted Avg**             | 0.97      | 0.97   | 0.97     | 175     |
-
-
-
-#### Prediction on Variants of Uncertain Significance
+### Prediction on Variants of Uncertain Significance (SLC19A3)
 
 ![prediction_unlabaled](https://github.com/user-attachments/assets/a5310637-741d-4743-a365-e4639ed22149)
 
 ![prediciton_unlabeled_confidance](https://github.com/user-attachments/assets/8f895b13-cb6d-40a7-84b9-54a64d60f35e)
 
-### Summary of Predictions for unlabeled data
+#### Summary of Predictions for unlabeled data
 
 - **Pathogenic:** 611 samples
 - **Likely Pathogenic:** 487 samples
@@ -123,6 +120,17 @@ The trained models were evaluated on unseen test data and used to classify previ
 ![confusion_SLC19A2](https://github.com/user-attachments/assets/83caa088-dfc3-4db8-a88a-49c43a453dab)
 ![confusion_grouped](https://github.com/user-attachments/assets/d17f9ab5-0df3-4b29-80bb-3a947808b746)
 
+#### Final Grouped Classification Report
+
+| Class                        | Precision | Recall | F1-Score | Support |
+|------------------------------|-----------|--------|----------|---------|
+| Benign/Likely Benign         | 0.94      | 0.95   | 0.94     | 61      |
+| Pathogenic/Likely Pathogenic | 0.67      | 0.60   | 0.63     | 10      |
+| Others                       | 1.00      | 1.00   | 1.00     | 55      |
+| **Accuracy**                 |           |        | **0.94** | **126** |
+| **Macro Avg**                | 0.87      | 0.85   | 0.86     | 126     |
+| **Weighted Avg**             | 0.94      | 0.94   | 0.94     | 126     |
+
 #### Binary Classification Performance (Benign vs. Pathogenic)
 
 | Metric        | Value    | Description                                                      |
@@ -134,16 +142,7 @@ The trained models were evaluated on unseen test data and used to classify previ
 | **Specificity** | 95.08% | Proportion of benign variants correctly identified               |
 | **AUC**       | 85.25%   | Area under the ROC curve (discrimination ability)                |
 
-#### Final Grouped Classification Report
-
-| Class                        | Precision | Recall | F1-Score | Support |
-|------------------------------|-----------|--------|----------|---------|
-| Benign/Likely Benign         | 0.94      | 0.95   | 0.94     | 61      |
-| Pathogenic/Likely Pathogenic | 0.67      | 0.60   | 0.63     | 10      |
-| Others                       | 1.00      | 1.00   | 1.00     | 55      |
-| **Accuracy**                 |           |        | **0.94** | **126** |
-| **Macro Avg**                | 0.87      | 0.85   | 0.86     | 126     |
-| **Weighted Avg**             | 0.94      | 0.94   | 0.94     | 126     |
+### Prediction on Variants of Uncertain Significance (SLC19A2)
 
 ![prediction_main](https://github.com/user-attachments/assets/e7b9fa0d-317a-494d-9f2c-955a39c788df)
 ![probability_prediction_main](https://github.com/user-attachments/assets/c6316267-c598-4a25-9dd0-19c33edbe0db)
