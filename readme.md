@@ -21,7 +21,6 @@ A significant challenge in genomics is the interpretation of missense variants, 
 ---
 
 ## 3. Research Objective
-## 3. Research Objective
 The primary objectives of this research are to:
 
 1.  Develop customized prediction models tailored for specific genes of interest (**SLC19A2**, **SLC19A3**) to improve the predictability of variant effects.
