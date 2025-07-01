@@ -7,7 +7,7 @@
 
 ---
 
-# 🏆 Combined Model Performance Results (SLC19A2 + SLC19A3)
+# Combined Model Performance Results (SLC19A2 + SLC19A3)
 
 ## Abstract
 A significant challenge in genomics is the interpretation of missense variants, with millions cataloged but only a small fraction clinically classified. This project addresses this gap by developing a sophisticated, gene-specific, multi-modal deep learning framework to predict the clinical significance of variants in the thiamine transporter genes **SLC19A2** and **SLC19A3**. By integrating three distinct data modalities—DNA sequence embeddings from **DNABERT-2**, protein structure embeddings from **ESM-2**, and engineered tabular features from population frequency and validation studies—the model achieves a comprehensive understanding of each variant. The resulting models demonstrate high accuracy, with test accuracies of 96.67% for binary classification (Pathogenic vs benign) and 92.70% for 5-Class Classification (Inclduing Likely Benign and Likely Pathogenic and Normal Classes) and AUC-ROC of 100% and 96.05% respectively, significantly outperforming traditional prediction tools and successfully classifying thousands of previously un-annotated variants.
