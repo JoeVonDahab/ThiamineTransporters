@@ -45,6 +45,7 @@ A comprehensive set of features was engineered from variant frequency and valida
 -   **Aggregate Features:** Four summary features were created for each variant: `Min_Frequency`, `Max_Frequency`, `Avg_Frequency`, and `Total_Studies` mentioned.
 -   **Validation Features:** Three binary features were created based on the `validation_status` column (`by-frequency`, `by-alfa`, `by-cluster`).
 -   **Final Vector:** This process resulted in a tabular feature vector of **71** dimensions for **SLC19A2** and **73** dimensions for **SLC19A3**.
+![Mermaid Chart - Create complex, visual diagrams with text  A smarter way of creating diagrams -2025-07-01-063127](https://github.com/user-attachments/assets/ca0992ca-a203-45f7-81c8-5772b43afc2e)
 
 ### 4.4. Fusion, Training, and Classification
 The three sets of features were combined to train the final classifier.
