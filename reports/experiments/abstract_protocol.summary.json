@@ -1,0 +1,113 @@
+{
+  "config": "abstract_protocol",
+  "split": "published",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "metrics": {
+    "test.accuracy_5class": {
+      "mean": 0.9350364963503649,
+      "sd": 0.007020213161193901,
+      "n": 5
+    },
+    "test.accuracy_grouped3": {
+      "mean": 0.9686131386861312,
+      "sd": 0.006107007492949449,
+      "n": 5
+    },
+    "test.strict_P_vs_B.accuracy": {
+      "mean": 0.9733333333333334,
+      "sd": 0.027888667551135848,
+      "n": 5
+    },
+    "test.strict_P_vs_B.auc": {
+      "mean": 1.0,
+      "sd": 0.0,
+      "n": 5
+    },
+    "test.PLP_vs_BLB.accuracy": {
+      "mean": 0.9461538461538461,
+      "sd": 0.012162606385263007,
+      "n": 5
+    },
+    "test.PLP_vs_BLB.precision": {
+      "mean": 0.8251945080091533,
+      "sd": 0.05869244039548648,
+      "n": 5
+    },
+    "test.PLP_vs_BLB.recall": {
+      "mean": 0.8299999999999998,
+      "sd": 0.027386127875258272,
+      "n": 5
+    },
+    "test.PLP_vs_BLB.specificity": {
+      "mean": 0.9672727272727272,
+      "sd": 0.013787046261911925,
+      "n": 5
+    },
+    "test.PLP_vs_BLB.f1": {
+      "mean": 0.8266010733452595,
+      "sd": 0.03399899692291008,
+      "n": 5
+    },
+    "test.PLP_vs_BLB.auc_renormalised": {
+      "mean": 0.9191818181818181,
+      "sd": 0.0072257002291579294,
+      "n": 5
+    },
+    "external:literature.grouped_argmax.accuracy": {
+      "mean": 0.6933333333333334,
+      "sd": 0.10110500592068734,
+      "n": 5
+    },
+    "external:literature.grouped_argmax.precision": {
+      "mean": 0.9777777777777779,
+      "sd": 0.04969039949999535,
+      "n": 5
+    },
+    "external:literature.grouped_argmax.recall": {
+      "mean": 0.6,
+      "sd": 0.1521200048243774,
+      "n": 5
+    },
+    "external:literature.grouped_argmax.specificity": {
+      "mean": 0.95,
+      "sd": 0.11180339887498947,
+      "n": 5
+    },
+    "external:literature.grouped_argmax.auc": {
+      "mean": 0.859090909090909,
+      "sd": 0.058828086843385384,
+      "n": 5
+    },
+    "external:literature.renormalised_gt_0.5.accuracy": {
+      "mean": 0.7066666666666667,
+      "sd": 0.11155467020454343,
+      "n": 5
+    },
+    "external:literature.renormalised_gt_0.5.precision": {
+      "mean": 0.9466666666666667,
+      "sd": 0.07673909622147557,
+      "n": 5
+    },
+    "external:literature.renormalised_gt_0.5.recall": {
+      "mean": 0.6545454545454545,
+      "sd": 0.21704247975115132,
+      "n": 5
+    },
+    "external:literature.renormalised_gt_0.5.specificity": {
+      "mean": 0.85,
+      "sd": 0.22360679774997896,
+      "n": 5
+    },
+    "external:literature.renormalised_gt_0.5.auc": {
+      "mean": 0.859090909090909,
+      "sd": 0.058828086843385384,
+      "n": 5
+    }
+  }
+}

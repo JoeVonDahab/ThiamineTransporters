@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Windows download markers
+*:Zone.Identifier
+
+# Data: only the raw dbSNP exports and the README are versioned (see data/README.md)
+data/*
+!data/README.md
+!data/raw/
+data/raw/*
+!data/raw/dbsnp/
+
+# Run outputs; released models live in models/ (Git LFS)
+outputs/
+reports/**/*.pt
+
+# Working files of the external-set builders
+validation/external/_work/

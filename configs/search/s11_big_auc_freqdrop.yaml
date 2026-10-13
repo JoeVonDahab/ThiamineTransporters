@@ -1,0 +1,7 @@
+name: s11_big_auc_freqdrop
+split: cv
+n_folds: 10
+seeds: [1, 2]
+drop_normal_fraction: 0.0
+layout: {use_dna: true, use_protein: true, use_tabular: true}
+train: {hidden_dims: [2048, 1024, 512, 256], activation: LeakyReLU, dropout: 0.2, optimizer: RMSprop, lr: 0.0005, weight_decay: 0.0001, selection_metric: plp_auc, tabular_dropout: 0.3, batch_size: 64, max_epochs: 300, early_stopping_patience: 60, lr_patience: 25, lr_factor: 0.2, class_balance_beta: 0.999}

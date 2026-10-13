@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triplevar"
+version = "1.0.0"
+description = "TripleVar: multimodal (DNABERT-2 + ESM-2 + allele-frequency) variant effect prediction for the thiamine transporter genes SLC19A2 and SLC19A3"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Youssef Abo-Dahab" }]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.2",
+    "torch>=1.13",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    "pyyaml>=6.0",
+    "tqdm>=4.60",
+]
+
+[project.optional-dependencies]
+# Only needed to compute embeddings for new variants (GPU strongly recommended).
+embeddings = [
+    "transformers>=4.29,<4.30",
+    "einops>=0.6",
+    "fair-esm>=2.0",
+]
+dev = ["pytest>=7"]
+
+[project.scripts]
+triplevar = "triplevar.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+    "integration: needs the real data/model artifacts under data/ and models/ (skipped when absent)",
+]

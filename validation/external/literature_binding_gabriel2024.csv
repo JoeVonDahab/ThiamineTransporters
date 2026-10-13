@@ -1,0 +1,15 @@
+gene,protein_change,kd_app_um,kd_sd_um,fold_vs_wt,no_binding,source,figure,notes
+SLC19A3,K44E,2.13,0.14,0.17,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,"disease allele; binds tighter than WT but dTm -15 C, unglycosylated, ER-retained (binding assay blind to this)"
+SLC19A3,F56A,4.04,0.31,0.32,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,Q300A,5.64,1.36,0.44,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,W59A,8.29,1.08,0.65,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,N45Q/N166Q,10.44,0.92,0.82,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,double glycosylation mutant
+SLC19A3,Y113A,15.51,2.00,1.22,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,Y151F,17.84,1.79,1.41,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,Y151A,18.70,9.08,1.47,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,E110Q,85.20,13.10,6.71,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,E32K,145.48,26.78,11.46,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,designed by analogy to SLC19A1 E45K; not a known disease allele
+SLC19A3,T422A,172.62,35.27,13.60,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,E320Q,284.38,44.91,22.40,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,
+SLC19A3,N297A,3082.5,2344.0,242.8,False,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Source Data MOESM9,titration does not saturate (extrapolated); Li 2024 uptake 74.6% of WT
+SLC19A3,E110K,,,,True,Gabriel et al. Nat Commun 2024;15:8542 (10.1038/s41467-024-52872-8),Fig. 2f / Suppl. Fig. 5b,no detectable thiamine binding up to 2 mM

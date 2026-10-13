@@ -1,0 +1,32 @@
+# Production TripleVar (v1), selected among 18 configurations (configs/search/)
+# by out-of-fold grouped-CV AUC on trusted labels; external sets were not used.
+#  * the abstract's architecture and optimiser,
+#  * allele-frequency dropout (30 % of training rows see the "no population
+#    data" encoding, as literature and novel variants do),
+#  * trained without labels copied across alleles of multi-allelic rsIDs
+#    (pass --label-audit ... --drop-untrusted-labels).
+# Release model = 5-seed ensemble (single models varied 3x in how many
+# non-coding pool variants they called pathogenic; the ensemble does not):
+#   triplevar train --config configs/production.yaml --label-audit validation/external/training_label_audit.csv \
+#     --drop-untrusted-labels --final --half --out models   # -> models/production.pt
+name: production
+split: cv
+n_folds: 10
+seeds: [1, 2, 3, 4, 5]
+drop_normal_fraction: 0.0
+layout: {use_dna: true, use_protein: true, use_tabular: true}
+train:
+  hidden_dims: [2048, 1024, 512, 256]
+  activation: LeakyReLU
+  dropout: 0.2
+  optimizer: RMSprop
+  lr: 0.0005
+  weight_decay: 0.0001
+  batch_size: 64
+  max_epochs: 300
+  early_stopping_patience: 60
+  lr_patience: 25
+  lr_factor: 0.2
+  class_balance_beta: 0.999
+  tabular_dropout: 0.3
+  selection_metric: legacy

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use TripleVar, please cite the abstract/poster below."
+title: "TripleVar: Fusing Genomic and Proteomic Language Models for High-Fidelity Variant Effect Prediction in the Thiamine Transporter Genes SLC19A2 and SLC19A3"
+authors:
+  - family-names: Abo-Dahab
+    given-names: Youssef
+  - family-names: Chun
+    given-names: Joanne
+  - family-names: Giacomini
+    given-names: Kathleen M.
+license: MIT
+repository-code: "https://github.com/JoeVonDahab/ThiamineTransporters"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.17927676
+    description: Abstract (Zenodo)
+  - type: doi
+    value: 10.5281/zenodo.18929630
+    description: Poster, ASCPT Annual Meeting 2026 (Zenodo)

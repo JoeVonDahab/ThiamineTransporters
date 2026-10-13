@@ -1,0 +1,107 @@
+{
+  "claims": {
+    "clinvar_strict_P_vs_B": {
+      "accuracy": 0.933,
+      "precision": 1.0,
+      "recall": 0.846,
+      "specificity": 1.0,
+      "f1": 0.917,
+      "auc": 1.0
+    },
+    "clinvar_PLP_vs_BLB": {
+      "accuracy": 0.937,
+      "auc": 0.913
+    },
+    "literature_external": {
+      "n": 15,
+      "accuracy": 0.8,
+      "precision": 0.9,
+      "recall": 0.82,
+      "specificity": 0.75,
+      "f1": 0.857
+    },
+    "prioritised": {
+      "pathogenic_high_confidence": 111,
+      "likely_pathogenic_lower_confidence": 303
+    },
+    "split": {
+      "train": 604,
+      "val": 130,
+      "test": 130,
+      "synthetic_normal": 962
+    }
+  },
+  "split": {
+    "train": 604,
+    "val": 130,
+    "test": 130,
+    "synthetic_normal": 962
+  },
+  "clinvar_test": {
+    "n": 274,
+    "accuracy_5class": 0.9307,
+    "accuracy_grouped3": 0.9599,
+    "strict_P_vs_B": {
+      "n": 30,
+      "tp": 11,
+      "fn": 2,
+      "fp": 0,
+      "tn": 17,
+      "accuracy": 0.9333,
+      "precision": 1.0,
+      "recall": 0.8462,
+      "specificity": 1.0,
+      "f1": 0.9167,
+      "auc": 0.9955
+    },
+    "PLP_vs_BLB": {
+      "n": 130,
+      "tp": 13,
+      "fn": 7,
+      "fp": 1,
+      "tn": 109,
+      "accuracy": 0.9385,
+      "precision": 0.9286,
+      "recall": 0.65,
+      "specificity": 0.9909,
+      "f1": 0.7647,
+      "auc": 0.915,
+      "auc_renormalised": 0.9132,
+      "pr_auc": 0.8407
+    }
+  },
+  "literature_external": {
+    "rule_strict_ratio_gt_0.5": {
+      "n": 15,
+      "tp": 10,
+      "fn": 1,
+      "fp": 2,
+      "tn": 2,
+      "accuracy": 0.8,
+      "precision": 0.8333,
+      "recall": 0.9091,
+      "specificity": 0.5,
+      "f1": 0.8696,
+      "auc": 0.7727
+    },
+    "rule_grouped_argmax": {
+      "n": 15,
+      "tp": 3,
+      "fn": 8,
+      "fp": 0,
+      "tn": 4,
+      "accuracy": 0.4667,
+      "precision": 1.0,
+      "recall": 0.2727,
+      "specificity": 1.0,
+      "f1": 0.4286,
+      "auc": 0.75
+    }
+  },
+  "prioritised": {
+    "pathogenic_high_confidence": 111,
+    "likely_pathogenic_lower_confidence": 303,
+    "vus_rows": 507,
+    "pool_rows": 31199
+  }
+}

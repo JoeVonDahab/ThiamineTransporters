@@ -1,0 +1,207 @@
+{
+  "literature_abstract": {
+    "grouped_argmax": {
+      "n": 15,
+      "tp": 3,
+      "fn": 8,
+      "fp": 0,
+      "tn": 4,
+      "accuracy": 0.4666666666666667,
+      "precision": 1.0,
+      "recall": 0.2727272727272727,
+      "specificity": 1.0,
+      "f1": 0.42857142857142855,
+      "auc": 0.75
+    },
+    "strict_ratio_gt_0.5": {
+      "n": 15,
+      "tp": 10,
+      "fn": 1,
+      "fp": 2,
+      "tn": 2,
+      "accuracy": 0.8,
+      "precision": 0.8333333333333334,
+      "recall": 0.9090909090909091,
+      "specificity": 0.5,
+      "f1": 0.8695652173913043,
+      "auc": 0.7727272727272727
+    },
+    "renormalised_gt_0.5": {
+      "n": 15,
+      "tp": 4,
+      "fn": 7,
+      "fp": 0,
+      "tn": 4,
+      "accuracy": 0.5333333333333333,
+      "precision": 1.0,
+      "recall": 0.36363636363636365,
+      "specificity": 1.0,
+      "f1": 0.5333333333333333,
+      "auc": 0.75
+    }
+  },
+  "literature_abstract_clean": {
+    "grouped_argmax": {
+      "n": 11,
+      "tp": 0,
+      "fn": 7,
+      "fp": 0,
+      "tn": 4,
+      "accuracy": 0.36363636363636365,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "f1": 0.0,
+      "auc": 0.6785714285714286
+    },
+    "strict_ratio_gt_0.5": {
+      "n": 11,
+      "tp": 6,
+      "fn": 1,
+      "fp": 2,
+      "tn": 2,
+      "accuracy": 0.7272727272727273,
+      "precision": 0.75,
+      "recall": 0.8571428571428571,
+      "specificity": 0.5,
+      "f1": 0.7999999999999999,
+      "auc": 0.7142857142857142
+    },
+    "renormalised_gt_0.5": {
+      "n": 11,
+      "tp": 1,
+      "fn": 6,
+      "fp": 0,
+      "tn": 4,
+      "accuracy": 0.45454545454545453,
+      "precision": 1.0,
+      "recall": 0.14285714285714285,
+      "specificity": 1.0,
+      "f1": 0.25,
+      "auc": 0.6785714285714286
+    }
+  },
+  "lit_transport": {
+    "grouped_argmax": {
+      "n": 13,
+      "tp": 2,
+      "fn": 5,
+      "fp": 0,
+      "tn": 6,
+      "accuracy": 0.6153846153846154,
+      "precision": 1.0,
+      "recall": 0.2857142857142857,
+      "specificity": 1.0,
+      "f1": 0.4444444444444445,
+      "auc": 0.6904761904761905
+    },
+    "strict_ratio_gt_0.5": {
+      "n": 13,
+      "tp": 4,
+      "fn": 3,
+      "fp": 2,
+      "tn": 4,
+      "accuracy": 0.6153846153846154,
+      "precision": 0.6666666666666666,
+      "recall": 0.5714285714285714,
+      "specificity": 0.6666666666666666,
+      "f1": 0.6153846153846153,
+      "auc": 0.6428571428571428
+    },
+    "renormalised_gt_0.5": {
+      "n": 13,
+      "tp": 2,
+      "fn": 5,
+      "fp": 0,
+      "tn": 6,
+      "accuracy": 0.6153846153846154,
+      "precision": 1.0,
+      "recall": 0.2857142857142857,
+      "specificity": 1.0,
+      "f1": 0.4444444444444445,
+      "auc": 0.6904761904761905
+    }
+  },
+  "lit_binding": {
+    "grouped_argmax": {
+      "n": 10,
+      "tp": 0,
+      "fn": 4,
+      "fp": 3,
+      "tn": 3,
+      "accuracy": 0.3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 0.5,
+      "f1": 0.0,
+      "auc": 0.20833333333333331
+    },
+    "strict_ratio_gt_0.5": {
+      "n": 10,
+      "tp": 4,
+      "fn": 0,
+      "fp": 5,
+      "tn": 1,
+      "accuracy": 0.5,
+      "precision": 0.4444444444444444,
+      "recall": 1.0,
+      "specificity": 0.16666666666666666,
+      "f1": 0.6153846153846153,
+      "auc": 0.25
+    },
+    "renormalised_gt_0.5": {
+      "n": 10,
+      "tp": 0,
+      "fn": 4,
+      "fp": 3,
+      "tn": 3,
+      "accuracy": 0.3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 0.5,
+      "f1": 0.0,
+      "auc": 0.20833333333333331
+    }
+  },
+  "clinvar_timesplit": {
+    "grouped_argmax": {
+      "n": 97,
+      "tp": 30,
+      "fn": 15,
+      "fp": 1,
+      "tn": 51,
+      "accuracy": 0.8350515463917526,
+      "precision": 0.967741935483871,
+      "recall": 0.6666666666666666,
+      "specificity": 0.9807692307692307,
+      "f1": 0.7894736842105263,
+      "auc": 0.8435897435897436
+    },
+    "strict_ratio_gt_0.5": {
+      "n": 97,
+      "tp": 34,
+      "fn": 11,
+      "fp": 3,
+      "tn": 49,
+      "accuracy": 0.8556701030927835,
+      "precision": 0.918918918918919,
+      "recall": 0.7555555555555555,
+      "specificity": 0.9423076923076923,
+      "f1": 0.8292682926829269,
+      "auc": 0.9008547008547009
+    },
+    "renormalised_gt_0.5": {
+      "n": 97,
+      "tp": 30,
+      "fn": 15,
+      "fp": 1,
+      "tn": 51,
+      "accuracy": 0.8350515463917526,
+      "precision": 0.967741935483871,
+      "recall": 0.6666666666666666,
+      "specificity": 0.9807692307692307,
+      "f1": 0.7894736842105263,
+      "auc": 0.8435897435897436
+    }
+  }
+}

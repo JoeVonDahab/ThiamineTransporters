@@ -1,0 +1,3 @@
+source,Benign,Likely Benign,Likely Pathogenic,Normal,Pathogenic
+ClinVar VUS,25,349,90,34,9
+dbSNP unlabeled,2125,22562,994,2949,134

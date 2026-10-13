@@ -1,0 +1,7 @@
+name: s06_small_auc_freqdrop
+split: cv
+n_folds: 10
+seeds: [1, 2]
+drop_normal_fraction: 0.0
+layout: {use_dna: true, use_protein: true, use_tabular: true}
+train: {hidden_dims: [512, 128], activation: LeakyReLU, dropout: 0.5, optimizer: AdamW, lr: 0.0003, weight_decay: 0.001, selection_metric: plp_auc, tabular_dropout: 0.3, batch_size: 64, max_epochs: 300, early_stopping_patience: 60, lr_patience: 25, lr_factor: 0.2, class_balance_beta: 0.999}
