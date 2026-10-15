@@ -1,4 +1,7 @@
-"""Figures for the TripleVar manuscript -> reports/figures/ (PDF + 600-dpi TIFF + PNG).
+"""Figures for the TripleVar manuscript -> reports/figures/ (PDF + 1,000-dpi CMYK TIFF + PNG).
+
+Sized for Clinical and Translational Science: 178 mm (two-column) wide, Arial (or its
+metric twin Liberation Sans) at 7-10 pt.
 
     python scripts/paper_figures.py [--only 1 2 3 4 S1]
 """
@@ -31,24 +34,36 @@ TOOL_STYLE = {"TripleVar": "-", "CADD": "--", "AlphaMissense": "-.", "REVEL": ":
 LABEL_COLOR = {0: BLUE, 1: ORANGE}
 
 plt.rcParams.update({
-    "font.family": "DejaVu Sans", "font.size": 7, "axes.titlesize": 7.5, "axes.labelsize": 7,
-    "xtick.labelsize": 6.5, "ytick.labelsize": 6.5, "legend.fontsize": 6.3, "axes.linewidth": 0.6,
+    "font.family": "sans-serif", "font.sans-serif": ["Arial", "Liberation Sans", "DejaVu Sans"], "font.size": 8, "axes.titlesize": 8, "axes.labelsize": 8,
+    "xtick.labelsize": 8, "ytick.labelsize": 8, "legend.fontsize": 8, "axes.linewidth": 0.6,
     "xtick.major.width": 0.6, "ytick.major.width": 0.6, "axes.edgecolor": "#c3c2b7", "axes.labelcolor": INK,
     "xtick.color": INK2, "ytick.color": INK2, "text.color": INK, "pdf.fonttype": 42, "ps.fonttype": 42,
 })
 
 
 def save(fig, name):
+    """Vector PDF, 300-dpi PNG preview and a CMYK TIFF at 1,000 dpi (CTS line-art requirement)."""
+    from PIL import Image
+
+    # Exact canvas size (no tight bbox), so the printed width is what the figure was laid out for.
+    ink = fig.get_tightbbox(fig.canvas.get_renderer())
+    w, h = fig.get_size_inches()
+    if ink.x0 < -0.01 or ink.y0 < -0.01 or ink.x1 > w + 0.01 or ink.y1 > h + 0.01:
+        print(f"WARNING {name}: content {ink.bounds} extends beyond the {w:.2f} x {h:.2f} in canvas")
     OUT.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUT / f"{name}.pdf", bbox_inches="tight")
-    fig.savefig(OUT / f"{name}.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUT / f"{name}.tiff", dpi=600, bbox_inches="tight", pil_kwargs={"compression": "tiff_lzw"})
+    fig.savefig(OUT / f"{name}.pdf")
+    fig.savefig(OUT / f"{name}.png", dpi=300)
+    rgb_tiff = OUT / f"{name}.rgb.tiff"
+    fig.savefig(rgb_tiff, dpi=1000, pil_kwargs={"compression": "tiff_lzw"})
+    with Image.open(rgb_tiff) as im:
+        im.convert("RGB").convert("CMYK").save(OUT / f"{name}.tiff", compression="tiff_lzw", dpi=(1000, 1000))
+    rgb_tiff.unlink()
     plt.close(fig)
     print("wrote", OUT / name)
 
 
-def panel(ax, letter):
-    ax.text(-0.02, 1.02, letter, transform=ax.transAxes, fontsize=9, fontweight="bold", va="bottom", ha="right")
+def panel(ax, letter, x=-0.02):
+    ax.text(x, 1.02, letter, transform=ax.transAxes, fontsize=10, fontweight="bold", va="bottom", ha="right")
 
 
 def clean(ax):
@@ -78,9 +93,9 @@ def box(ax, x, y, w, h, title, lines, color):
                                 linewidth=0.8, edgecolor=color, facecolor="white"))
     ax.add_patch(FancyBboxPatch((x, y + h - 0.055), w, 0.055, boxstyle="round,pad=0.004,rounding_size=0.012",
                                 linewidth=0, facecolor=color, alpha=0.16))
-    ax.text(x + 0.012, y + h - 0.028, title, fontsize=6.8, fontweight="bold", va="center", color=INK)
+    ax.text(x + 0.010, y + h - 0.028, title, fontsize=8, fontweight="bold", va="center", color=INK)
     for i, line in enumerate(lines):
-        ax.text(x + 0.012, y + h - 0.085 - i * 0.047, line, fontsize=5.9, va="top", color=INK2)
+        ax.text(x + 0.010, y + h - 0.080 - i * 0.047, line, fontsize=7, va="top", color=INK2)
 
 
 def arrow(ax, x0, y0, x1, y1):
@@ -92,8 +107,8 @@ def figure1():
     ax = fig.add_axes([0, 0, 1, 1])
     ax.set_xlim(0, 1), ax.set_ylim(0, 1), ax.axis("off")
     for x, letter, title in ((0.0, "a", "Data and labels"), (0.335, "b", "Featurisation and model"), (0.69, "c", "Evaluation")):
-        ax.text(x + 0.005, 0.975, letter, fontsize=9, fontweight="bold", va="top")
-        ax.text(x + 0.03, 0.972, title, fontsize=7.5, fontweight="bold", va="top")
+        ax.text(x + 0.005, 0.978, letter, fontsize=10, fontweight="bold", va="top")
+        ax.text(x + 0.03, 0.975, title, fontsize=9, fontweight="bold", va="top")
     # (a)
     box(ax, 0.005, 0.66, 0.305, 0.27, "dbSNP exports (GRCh38, June 2025)",
         ["SLC19A2 and SLC19A3, all alleles", "one row per alternative allele",
@@ -111,11 +126,11 @@ def figure1():
              (0.545, "ESM-2 3B  (2,560-d)", ["mutant protein, layer 36, mean-pooled"], ORANGE),
              (0.345, "Population data  (71-d)", ["32 dbSNP studies: frequency, presence,", "summaries, validation flags"], AQUA))
     for y, title, lines, color in feats:
-        box(ax, 0.335, y, 0.285, 0.185, title, lines, color)
-        ax.plot([0.62, 0.638], [y + 0.0925, y + 0.0925], color=MUTED, linewidth=0.8)
-    ax.plot([0.638, 0.638], [0.345 + 0.0925, 0.745 + 0.0925], color=MUTED, linewidth=0.8)
-    arrow(ax, 0.638, 0.437, 0.638, 0.268)
-    box(ax, 0.335, 0.03, 0.32, 0.235, "Fused 6,471-d → MLP → 5 classes",
+        box(ax, 0.335, y, 0.305, 0.185, title, lines, color)
+        ax.plot([0.64, 0.655], [y + 0.0925, y + 0.0925], color=MUTED, linewidth=0.8)
+    ax.plot([0.655, 0.655], [0.345 + 0.0925, 0.745 + 0.0925], color=MUTED, linewidth=0.8)
+    arrow(ax, 0.655, 0.437, 0.655, 0.268)
+    box(ax, 0.335, 0.03, 0.335, 0.235, "Fused 6,471-d → MLP → 5 classes",
         ["2048-1024-512-256, BatchNorm, LeakyReLU", "class-balanced loss; frequency dropout 0.3", "P · LP · LB · B · wild type"], MAGENTA)
     # (c)
     box(ax, 0.69, 0.73, 0.305, 0.20, "Grouped cross-validation",
@@ -146,9 +161,9 @@ def figure2():
     _, trusted = masks(labeled, "validation/external/training_label_audit.csv")
     keep = labeled.y != VUS
     tr = trusted[keep]
-    fig = plt.figure(figsize=(178 * MM, 78 * MM))
-    ax1 = fig.add_axes([0.06, 0.15, 0.36, 0.78])
-    ax2 = fig.add_axes([0.63, 0.15, 0.35, 0.78])
+    fig = plt.figure(figsize=(178 * MM, 80 * MM))
+    ax1 = fig.add_axes([0.075, 0.14, 0.36, 0.80])
+    ax2 = fig.add_axes([0.665, 0.14, 0.29, 0.80])
     for name, label, color, ls in ABLATIONS[:5]:
         oof = pd.read_csv(f"outputs/ablation/{name}.oof.csv")
         assert len(oof) == keep.sum() and np.array_equal(oof["y"].to_numpy(), labeled.y[keep])
@@ -156,7 +171,8 @@ def figure2():
         m = tr & np.isin(oof["y"].to_numpy(), [-2, -1, 1, 2])
         roc(ax1, np.isin(oof["y"].to_numpy()[m], [-2, -1]), s.pathogenic_given_variant[m], label, color, ls)
     roc_axes(ax1)
-    ax1.legend(loc="lower right", frameon=False, handlelength=2.6)
+    ax1.legend(loc="lower right", frameon=False, handlelength=2.0, handletextpad=0.4, labelspacing=0.3,
+               borderaxespad=0.1, fontsize=7)
     panel(ax1, "a")
     rows = []
     for name, label, color, _ in ABLATIONS:
@@ -167,10 +183,10 @@ def figure2():
     for i, (label, vals, color) in enumerate(rows):
         ax2.scatter(vals, [i] * len(vals), s=14, color=color, edgecolor="white", linewidth=0.6, zorder=3)
         ax2.plot([np.mean(vals)] * 2, [i - 0.28, i + 0.28], color=INK, linewidth=1.0, zorder=4)
-        ax2.text(max(vals) + 0.006, i, f"{np.mean(vals):.3f}", va="center", fontsize=6.2, color=INK2)
+        ax2.text(max(vals) + 0.008, i, f"{np.mean(vals):.3f}", va="center", fontsize=7, color=INK2)
     ax2.set_yticks(range(len(rows)))
     ax2.set_yticklabels([r[0] for r in rows])
-    ax2.set_xlabel("Out-of-fold ROC-AUC, P/LP vs B/LB (trusted labels)")
+    ax2.set_xlabel("ROC-AUC, P/LP vs B/LB (trusted labels)")
     ax2.set_xlim(0.5, 0.97)
     clean(ax2)
     ax2.grid(False, axis="y")
@@ -198,11 +214,11 @@ def figure3():
     ts = pd.read_csv("reports/predictions/clinvar_timesplit.triplevar_v1.csv")
     y = ts["label_binary"].astype(int).to_numpy() == 1
     bench = pd.read_csv("validation/benchmarks/benchmark_scores.csv")
-    fig = plt.figure(figsize=(178 * MM, 158 * MM))
-    ax1 = fig.add_axes([0.07, 0.58, 0.36, 0.38])
-    ax2 = fig.add_axes([0.56, 0.58, 0.42, 0.34])
-    ax3 = fig.add_axes([0.07, 0.07, 0.36, 0.38])
-    ax4 = fig.add_axes([0.56, 0.07, 0.36, 0.38])
+    fig = plt.figure(figsize=(178 * MM, 165 * MM))
+    ax1 = fig.add_axes([0.075, 0.565, 0.36, 0.385])
+    ax2 = fig.add_axes([0.62, 0.565, 0.24, 0.35])
+    ax3 = fig.add_axes([0.075, 0.065, 0.36, 0.385])
+    ax4 = fig.add_axes([0.585, 0.065, 0.36, 0.385])
     abstract = load_model("models/triplevar_abstract_2025-09-11.pt")
     fs = FeatureSet.load("data/processed/clinvar_timesplit")
     p_abs = Scores(abstract.predict_proba(fs.X(abstract.layout))).pathogenic_given_variant
@@ -210,7 +226,7 @@ def figure3():
     roc(ax1, y, p_abs, f"Abstract model, n={len(y)}", MAGENTA, TOOL_STYLE["Abstract model"])
     roc_axes(ax1)
     ax1.legend(loc="lower right", frameon=False, handlelength=2.6)
-    ax1.set_title("ClinVar time-split", loc="left", fontsize=7)
+    ax1.set_title("ClinVar time-split", loc="left")
     panel(ax1, "a")
 
     cv = bench[bench["set"] == "cv"]
@@ -220,7 +236,7 @@ def figure3():
     roc(ax3, yc, c["cadd_phred"], "CADD v1.7", ORANGE, "--")
     roc_axes(ax3)
     ax3.legend(loc="lower right", frameon=False, handlelength=2.6)
-    ax3.set_title(f"Labeled alleles scored by CADD (n={len(c)}; {int(yc.sum())} P/LP)", loc="left", fontsize=7)
+    ax3.set_title(f"Labeled alleles scored by CADD (n={len(c)}; {int(yc.sum())} P/LP)", loc="left")
     panel(ax3, "c")
 
     mis = cv[cv["is_missense"].astype(str).str.lower().eq("true")].dropna(subset=["alphamissense", "revel"])
@@ -230,7 +246,7 @@ def figure3():
     roc(ax4, ym, mis["revel"], "REVEL", YELLOW, ":")
     roc_axes(ax4)
     ax4.legend(loc="lower right", frameon=False, handlelength=2.6)
-    ax4.set_title(f"Labeled missense alleles (n={len(mis)}; {int(ym.sum())} P/LP)", loc="left", fontsize=7)
+    ax4.set_title(f"Labeled missense alleles (n={len(mis)}; {int(ym.sum())} P/LP)", loc="left")
     panel(ax4, "d")
 
     ts["group"] = ts["consequence"].map(consequence_group)
@@ -250,7 +266,8 @@ def figure3():
             ax2.scatter(s["p_pathogenic"][~correct], (i + off + jitter)[~correct], s=16, facecolor="white",
                         edgecolor=LABEL_COLOR[lab], linewidth=0.9, zorder=3)
         n_p, n_b = int((sub.label_binary == 1).sum()), int((sub.label_binary == 0).sum())
-        ax2.text(1.02, i, f"{n_p} P/LP · {n_b} B/LB", va="center", fontsize=6, color=INK2, transform=ax2.get_yaxis_transform())
+        ax2.text(1.03, i, f"{n_p} P/LP\n{n_b} B/LB", va="center", fontsize=7, color=INK2, linespacing=1.1,
+                 transform=ax2.get_yaxis_transform())
     ax2.set_yticks(range(len(order)))
     ax2.set_yticklabels(order)
     ax2.set_xlim(-0.02, 1.02)
@@ -264,9 +281,11 @@ def figure3():
         plt.Line2D([], [], marker="o", linestyle="", markersize=4, color=BLUE, label="B/LB, called benign"),
         plt.Line2D([], [], marker="o", linestyle="", markersize=4, markerfacecolor="white", markeredgecolor=BLUE, label="B/LB, called pathogenic"),
     ]
-    ax2.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.04, 1.0), ncol=2, frameon=False,
-               columnspacing=1.0, handletextpad=0.2, borderaxespad=0.2)
-    panel(ax2, "b")
+    fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.525, 0.985), ncol=2, frameon=False,
+               columnspacing=1.0, handletextpad=0.2, borderaxespad=0.0, fontsize=7)
+    ax1.apply_aspect()
+    a_box = ax1.get_position()
+    fig.text(0.505, a_box.y1 + 0.02 * a_box.height, "b", fontsize=10, fontweight="bold", va="bottom", ha="right")
     save(fig, "Figure3_clinvar_timesplit")
 
 
@@ -305,13 +324,14 @@ def figure4():
     rows = []
     for source, fs in (("ClinVar VUS", vus), ("Unlabelled dbSNP", pool)):
         s = Scores(model.predict_proba(fs.X(model.layout)))
+        # Same call rule as every reported metric: argmax, with a reference-class argmax resolved by P vs B mass.
         rows.append(pd.DataFrame({"source": source, "p": s.pathogenic_given_variant,
-                                  "call": np.isin(s.pred, [-2, -1]), "cls": protein_class(fs.meta, wt)}))
+                                  "call": s.call_grouped(), "cls": protein_class(fs.meta, wt)}))
     df = pd.concat(rows, ignore_index=True)
     order = ["Protein-truncating", "Missense", "Other protein-altering", "Synonymous", "Intronic", "UTR", "Flanking"]
     order = [o for o in order if (df.cls == o).any()]
-    fig = plt.figure(figsize=(178 * MM, 72 * MM))
-    ax = fig.add_axes([0.13, 0.16, 0.62, 0.8])
+    fig = plt.figure(figsize=(178 * MM, 75 * MM))
+    ax = fig.add_axes([0.185, 0.155, 0.505, 0.815])
     data = [df.loc[df.cls == o, "p"].to_numpy() for o in order]
     parts = ax.violinplot(data, positions=range(len(order)), vert=False, widths=0.8, showextrema=False)
     for b in parts["bodies"]:
@@ -322,7 +342,7 @@ def figure4():
         ax.scatter([med], [i], s=10, color="white", edgecolor=INK, linewidth=0.7, zorder=3)
         sub = df[df.cls == order[i]]
         ax.text(1.03, i, f"n = {len(sub):,}   P/LP calls {int(sub.call.sum()):,} ({100 * sub.call.mean():.1f}%)",
-                va="center", fontsize=6.2, color=INK2, transform=ax.get_yaxis_transform())
+                va="center", fontsize=7, color=INK2, transform=ax.get_yaxis_transform())
     ax.set_yticks(range(len(order)))
     ax.set_yticklabels(order)
     ax.set_ylim(len(order) - 0.5, -0.5)
@@ -338,7 +358,7 @@ def figure4():
 def figureS1():
     """Evaluation protocol: row-level split (abstract) vs rsID-grouped CV, same model family."""
     fig = plt.figure(figsize=(120 * MM, 62 * MM))
-    ax = fig.add_axes([0.32, 0.2, 0.64, 0.75])
+    ax = fig.add_axes([0.30, 0.2, 0.62, 0.76])
     entries = []
     ap = json.loads(Path("reports/experiments/abstract_protocol.summary.json").read_text())["metrics"]
     entries.append(("Row-level split\n(abstract protocol)", ap["test.PLP_vs_BLB.auc_renormalised"]["mean"], ap["test.PLP_vs_BLB.auc_renormalised"]["sd"], MAGENTA))
@@ -348,7 +368,7 @@ def figureS1():
         entries.append((label, m["test.PLP_vs_BLB.auc_renormalised"]["mean"], m["test.PLP_vs_BLB.auc_renormalised"]["sd"], color))
     for i, (label, mean, sd, color) in enumerate(entries):
         ax.errorbar(mean, i, xerr=sd, fmt="o", color=color, markersize=4, capsize=2, linewidth=0.9)
-        ax.text(mean + sd + 0.004, i, f"{mean:.3f}", va="center", fontsize=6.2, color=INK2)
+        ax.text(mean + sd + 0.004, i, f"{mean:.3f}", va="center", fontsize=7, color=INK2)
     ax.set_yticks(range(len(entries)))
     ax.set_yticklabels([e[0] for e in entries])
     ax.set_ylim(len(entries) - 0.5, -0.5)

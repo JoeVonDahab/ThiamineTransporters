@@ -56,8 +56,12 @@ and the DNABERT-2 embedding adds none.
 What changed versus the abstract model: rsID-grouped evaluation, allele-frequency
 dropout during training (variants without population data are scored on sequence
 evidence), training only on labels that belong to the variant's own allele, seeds,
-and a self-contained model file. Modality ablations show the ESM-2 protein embedding
-carries most of the signal; DNABERT-2 + frequency alone reaches AUC 0.60.
+and a self-contained model file.
+
+**Prioritisation.** Of 29,271 unclassified alleles (507 ClinVar VUS, 28,764 unlabelled dbSNP
+alleles), the release model calls 1,339 pathogenic or likely pathogenic
+(`reports/predictions/prioritised_pathogenic.triplevar_v1.csv`; full ranked list in
+`reports/supplementary/DataS1b_unclassified_ranked.csv`).
 
 ## Install
 
@@ -126,6 +130,18 @@ triplevar reference --from-legacy data/legacy
 triplevar reproduce-abstract          # -> reports/abstract_reproduction/
 pytest -m integration                 # asserts the abstract's numbers
 ```
+
+## Reproducing the manuscript
+
+```bash
+python scripts/paper_numbers.py        # every table value -> reports/paper_numbers.json
+python scripts/paper_figures.py        # Figures 1-4, S1 -> reports/figures/ (vector PDF, 1,000-dpi CMYK TIFF, PNG)
+python scripts/export_predictions.py --model models/triplevar_v1.pt   # -> reports/predictions/
+python scripts/paper_data_s1.py        # Supplementary Data S1 + column dictionary -> reports/supplementary/
+```
+
+The benchmark against CADD, AlphaMissense and REVEL has its own scripts and provenance in
+`validation/benchmarks/`; the modality ablation configurations are in `configs/ablation/`.
 
 ## Repository layout
 
