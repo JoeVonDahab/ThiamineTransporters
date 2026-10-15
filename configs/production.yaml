@@ -1,4 +1,4 @@
-# Production TripleVar (v1), selected among 18 configurations (configs/search/)
+# Production TripleVar (v1), selected among 15 configurations (configs/search/)
 # by out-of-fold grouped-CV AUC on trusted labels; external sets were not used.
 #  * the abstract's architecture and optimiser,
 #  * allele-frequency dropout (30 % of training rows see the "no population

@@ -44,6 +44,15 @@ leakage-free cross-validation). For comparison, the abstract model scores 85.6 %
 sides of the split; with rsIDs kept together the same model family scores lower,
 which is why the release model is evaluated on grouped folds and external data.
 
+**Compared with established predictors on the same variants, TripleVar is worse.** CADD v1.7
+reaches AUC 0.963 vs 0.807 for TripleVar on 764 labeled single-nucleotide variants (time-split:
+0.989 vs 0.850), and AlphaMissense (0.870) and REVEL (0.902) beat it on 129 missense variants
+(0.635). TripleVar's only extra coverage is insertions/deletions (out-of-fold AUC 0.99), which
+the CADD web service does not score. Use calibrated established predictors as clinical evidence;
+see [`validation/benchmarks/BENCHMARK.md`](validation/benchmarks/BENCHMARK.md). A modality
+ablation (`configs/ablation/`) shows the ESM-2 protein embedding carries almost all of the signal
+and the DNABERT-2 embedding adds none.
+
 What changed versus the abstract model: rsID-grouped evaluation, allele-frequency
 dropout during training (variants without population data are scored on sequence
 evidence), training only on labels that belong to the variant's own allele, seeds,

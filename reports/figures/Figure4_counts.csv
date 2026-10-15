@@ -1,0 +1,14 @@
+source,cls,n,plp_calls,median_p
+ClinVar VUS,Intronic,9,0,0.25633614706432906
+ClinVar VUS,Missense,390,83,0.24323240254308415
+ClinVar VUS,Other protein-altering,6,5,0.8564592248862526
+ClinVar VUS,Protein-truncating,5,5,0.9974319447661653
+ClinVar VUS,Synonymous,16,1,0.15236799998165595
+ClinVar VUS,UTR,81,5,0.05559062536347448
+Unlabelled dbSNP,Flanking,8171,359,0.1407990942173456
+Unlabelled dbSNP,Intronic,15737,281,0.10663372567517759
+Unlabelled dbSNP,Missense,1088,213,0.18257738226196313
+Unlabelled dbSNP,Other protein-altering,41,22,0.7103780784542454
+Unlabelled dbSNP,Protein-truncating,96,96,0.9993884981770897
+Unlabelled dbSNP,Synonymous,322,9,0.12036581125718596
+Unlabelled dbSNP,UTR,3309,148,0.06967683730997247

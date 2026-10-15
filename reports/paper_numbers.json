@@ -1,0 +1,954 @@
+{
+ "table1": [
+  [
+   "Labeled dbSNP records (rsIDs)",
+   "366",
+   "596",
+   "962",
+   "Training and cross-validation"
+  ],
+  [
+   "Pathogenic alleles",
+   "42",
+   "43",
+   "85",
+   ""
+  ],
+  [
+   "Likely pathogenic alleles",
+   "13",
+   "35",
+   "48",
+   ""
+  ],
+  [
+   "Likely benign alleles",
+   "308",
+   "310",
+   "618",
+   ""
+  ],
+  [
+   "Benign alleles",
+   "17",
+   "96",
+   "113",
+   ""
+  ],
+  [
+   "  of which label belongs to the allele (trusted)",
+   "252",
+   "313",
+   "565",
+   "Trusted-label evaluation"
+  ],
+  [
+   "  copied from another allele of the record",
+   "91",
+   "109",
+   "200",
+   "Excluded from training"
+  ],
+  [
+   "  discordant with the allele's own record",
+   "23",
+   "37",
+   "60",
+   "Excluded from training"
+  ],
+  [
+   "VUS alleles",
+   "154",
+   "353",
+   "507",
+   "Prioritization"
+  ],
+  [
+   "Unclassified alleles",
+   "10,655",
+   "18,109",
+   "28,764",
+   "Prioritization"
+  ],
+  [
+   "ClinVar time-split, P/LP",
+   "15",
+   "30",
+   "45",
+   "External validation"
+  ],
+  [
+   "ClinVar time-split, B/LB",
+   "23",
+   "29",
+   "52",
+   "External validation"
+  ],
+  [
+   "Thiamine uptake set, loss of function / tolerated",
+   "3 / 4",
+   "4 / 2",
+   "7 / 6",
+   "External validation"
+  ],
+  [
+   "Thiamine binding set, loss of function / tolerated",
+   "\u2014",
+   "4 / 6",
+   "4 / 6",
+   "External validation"
+  ]
+ ],
+ "timesplit_v1": {
+  "n": 97,
+  "tp": 35,
+  "fn": 10,
+  "fp": 2,
+  "tn": 50,
+  "accuracy": 0.8762886597938144,
+  "precision": 0.9459459459459459,
+  "recall": 0.7777777777777778,
+  "specificity": 0.9615384615384616,
+  "f1": 0.8536585365853658,
+  "auc": 0.9085470085470086
+ },
+ "table2": [
+  {
+   "label": "Grouped CV (5 \u00d7 10-fold), all labels",
+   "n": "864 (133:731)",
+   "auc": "0.873 \u00b1 0.007",
+   "accuracy": "88.3 \u00b1 0.5",
+   "sensitivity": "71.6 \u00b1 0.8",
+   "specificity": "91.3 \u00b1 0.7",
+   "precision": "60.1 \u00b1 1.7"
+  },
+  {
+   "label": "Grouped CV, trusted labels",
+   "n": "565 (104:461)",
+   "auc": "0.904 \u00b1 0.005",
+   "accuracy": "91.4 \u00b1 0.4",
+   "sensitivity": "75.8 \u00b1 1.6",
+   "specificity": "94.9 \u00b1 0.5",
+   "precision": "77.0 \u00b1 1.6"
+  },
+  {
+   "label": "Grouped CV, trusted labels, P vs B only",
+   "n": "140 (72:68)",
+   "auc": "0.954 \u00b1 0.010",
+   "accuracy": "\u2014",
+   "sensitivity": "\u2014",
+   "specificity": "\u2014",
+   "precision": "\u2014"
+  },
+  {
+   "label": "ClinVar time-split, all",
+   "n": "97 (45:52)",
+   "auc": "0.909 (0.833\u20130.970)",
+   "accuracy": "87.6",
+   "sensitivity": "77.8",
+   "specificity": "96.2",
+   "precision": "94.6"
+  },
+  {
+   "label": "  no ClinVar submission before the snapshot",
+   "n": "47 (23:24)",
+   "auc": "0.929 (0.825\u20131.000)",
+   "accuracy": "91.5",
+   "sensitivity": "82.6",
+   "specificity": "100.0",
+   "precision": "100.0"
+  },
+  {
+   "label": "  absent from training export (no population data)",
+   "n": "54 (31:23)",
+   "auc": "0.964 (0.904\u20131.000)",
+   "accuracy": "90.7",
+   "sensitivity": "83.9",
+   "specificity": "100.0",
+   "precision": "100.0"
+  },
+  {
+   "label": "  missense",
+   "n": "10 (8:2)",
+   "auc": "0.625 (0.111\u20131.000)",
+   "accuracy": "60.0",
+   "sensitivity": "62.5",
+   "specificity": "50.0",
+   "precision": "83.3"
+  },
+  {
+   "label": "Thiamine uptake (Li et al. 2024)",
+   "n": "13 (7:6)",
+   "auc": "0.738 (0.400\u20131.000)",
+   "accuracy": "61.5",
+   "sensitivity": "57.1",
+   "specificity": "66.7",
+   "precision": "66.7"
+  },
+  {
+   "label": "Thiamine binding (Gabriel et al. 2024)",
+   "n": "10 (4:6)",
+   "auc": "0.500 (0.048\u20131.000)",
+   "accuracy": "30.0",
+   "sensitivity": "50.0",
+   "specificity": "16.7",
+   "precision": "28.6"
+  }
+ ],
+ "timesplit_abstract": {
+  "n": 97,
+  "tp": 30,
+  "fn": 15,
+  "fp": 1,
+  "tn": 51,
+  "accuracy": 0.8350515463917526,
+  "precision": 0.967741935483871,
+  "recall": 0.6666666666666666,
+  "specificity": 0.9807692307692307,
+  "f1": 0.7894736842105263,
+  "auc": 0.8435897435897436
+ },
+ "ablation": {
+  "abl_dna_freq": {
+   "trusted_auc": 0.6580906891373269,
+   "trusted_sd": 0.0011651392398159212,
+   "all_auc": 0.6376628986968105,
+   "timesplit_auc": 0.6455128205128206
+  },
+  "abl_dna_only": {
+   "trusted_auc": 0.6439179042215919,
+   "trusted_sd": 8.849158783406296e-05,
+   "all_auc": 0.6343817820886004,
+   "timesplit_auc": 0.6072649572649573
+  },
+  "abl_dna_protein": {
+   "trusted_auc": 0.8879317537126648,
+   "trusted_sd": 0.010943459695486787,
+   "all_auc": 0.8712907439597626,
+   "timesplit_auc": 0.9019230769230769
+  },
+  "abl_dna_protein_freq": {
+   "trusted_auc": 0.9064533622559654,
+   "trusted_sd": 0.007285807398343057,
+   "all_auc": 0.8738827232239285,
+   "timesplit_auc": 0.898931623931624
+  },
+  "abl_freq_only": {
+   "trusted_auc": 0.618888703487402,
+   "trusted_sd": 0.004232847618065531,
+   "all_auc": 0.5968417966941979,
+   "timesplit_auc": 0.638034188034188
+  },
+  "abl_protein_freq": {
+   "trusted_auc": 0.9099470215251126,
+   "trusted_sd": 0.016400440945257826,
+   "all_auc": 0.8812498071444,
+   "timesplit_auc": 0.9115384615384616
+  },
+  "abl_protein_only": {
+   "trusted_auc": 0.8836298598364759,
+   "trusted_sd": 0.009181002237790586,
+   "all_auc": 0.8523060386945476,
+   "timesplit_auc": 0.9064102564102563
+  }
+ },
+ "benchmark_metrics_csv": "validation/benchmarks/benchmark_metrics.csv",
+ "tableS1": [
+  [
+   "S01",
+   "Abstract settings (4 layers, early stop on accuracy + pathogenic recall)",
+   "0.865 \u00b1 0.003",
+   "0.893 \u00b1 0.006",
+   "0.917 \u00b1 0.003"
+  ],
+  [
+   "S02",
+   "s01, early stop on validation AUC",
+   "0.856 \u00b1 0.003",
+   "0.887 \u00b1 0.012",
+   "0.895 \u00b1 0.020"
+  ],
+  [
+   "S03",
+   "s02, reference class removed",
+   "0.837 \u00b1 0.006",
+   "0.873 \u00b1 0.014",
+   "0.920 \u00b1 0.010"
+  ],
+  [
+   "S04",
+   "Small network (512-128, dropout 0.5, AdamW), early stop on AUC",
+   "0.814 \u00b1 0.005",
+   "0.854 \u00b1 0.000",
+   "0.886 \u00b1 0.007"
+  ],
+  [
+   "S05",
+   "s04, reference class removed",
+   "0.815 \u00b1 0.007",
+   "0.866 \u00b1 0.001",
+   "0.916 \u00b1 0.015"
+  ],
+  [
+   "S06",
+   "s04 + frequency dropout 0.3",
+   "0.841 \u00b1 0.016",
+   "0.879 \u00b1 0.013",
+   "0.903 \u00b1 0.019"
+  ],
+  [
+   "S07",
+   "s05 + frequency dropout 0.3",
+   "0.820 \u00b1 0.013",
+   "0.867 \u00b1 0.009",
+   "0.920 \u00b1 0.006"
+  ],
+  [
+   "S08",
+   "s02, trained on trusted labels only",
+   "0.841 \u00b1 0.020",
+   "0.872 \u00b1 0.024",
+   "0.914 \u00b1 0.004"
+  ],
+  [
+   "S09",
+   "s04, trained on trusted labels only",
+   "0.831 \u00b1 0.006",
+   "0.868 \u00b1 0.011",
+   "0.903 \u00b1 0.032"
+  ],
+  [
+   "S10",
+   "s06, trained on trusted labels only",
+   "0.832 \u00b1 0.012",
+   "0.871 \u00b1 0.021",
+   "0.921 \u00b1 0.014"
+  ],
+  [
+   "S11",
+   "s02 + frequency dropout 0.3",
+   "0.848 \u00b1 0.013",
+   "0.883 \u00b1 0.007",
+   "0.908 \u00b1 0.013"
+  ],
+  [
+   "S12",
+   "s11, trained on trusted labels only",
+   "0.845 \u00b1 0.030",
+   "0.875 \u00b1 0.028",
+   "0.911 \u00b1 0.001"
+  ],
+  [
+   "S13",
+   "s01, trained on trusted labels only",
+   "0.860 \u00b1 0.001",
+   "0.896 \u00b1 0.009",
+   "0.900 \u00b1 0.008"
+  ],
+  [
+   "S14",
+   "s01 + frequency dropout 0.3",
+   "0.861 \u00b1 0.015",
+   "0.897 \u00b1 0.011",
+   "0.914 \u00b1 0.014"
+  ],
+  [
+   "S15",
+   "s01 + frequency dropout 0.3, trusted labels only (selected)",
+   "0.874 \u00b1 0.006",
+   "0.906 \u00b1 0.007",
+   "0.896 \u00b1 0.005"
+  ]
+ ],
+ "tableS2": [
+  [
+   "Pathogenic",
+   "SLC19A2",
+   "36",
+   "4",
+   "2",
+   "0",
+   "42"
+  ],
+  [
+   "Pathogenic",
+   "SLC19A3",
+   "36",
+   "4",
+   "2",
+   "1",
+   "43"
+  ],
+  [
+   "Likely pathogenic",
+   "SLC19A2",
+   "10",
+   "3",
+   "0",
+   "0",
+   "13"
+  ],
+  [
+   "Likely pathogenic",
+   "SLC19A3",
+   "22",
+   "6",
+   "7",
+   "0",
+   "35"
+  ],
+  [
+   "Likely benign",
+   "SLC19A2",
+   "197",
+   "76",
+   "21",
+   "14",
+   "308"
+  ],
+  [
+   "Likely benign",
+   "SLC19A3",
+   "196",
+   "64",
+   "28",
+   "22",
+   "310"
+  ],
+  [
+   "Benign",
+   "SLC19A2",
+   "9",
+   "8",
+   "0",
+   "0",
+   "17"
+  ],
+  [
+   "Benign",
+   "SLC19A3",
+   "59",
+   "35",
+   "0",
+   "2",
+   "96"
+  ],
+  [
+   "VUS",
+   "SLC19A2",
+   "101",
+   "52",
+   "0",
+   "1",
+   "154"
+  ],
+  [
+   "VUS",
+   "SLC19A3",
+   "258",
+   "84",
+   "6",
+   "5",
+   "353"
+  ]
+ ],
+ "tableS3": [
+  [
+   "Uptake",
+   "SLC19A3",
+   "R29A",
+   "uptake 39.1% of WT",
+   "Loss of function",
+   "0.62",
+   "Pathogenic",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A3",
+   "E32A",
+   "uptake 36.4% of WT",
+   "Loss of function",
+   "0.43",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A3",
+   "F56A",
+   "uptake 76.8% of WT",
+   "Tolerated",
+   "0.64",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A3",
+   "W59A",
+   "uptake 78.2% of WT",
+   "Tolerated",
+   "0.72",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A3",
+   "E110A",
+   "uptake 28.5% of WT",
+   "Loss of function",
+   "0.83",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A3",
+   "K380A",
+   "uptake 36.7% of WT",
+   "Loss of function",
+   "0.22",
+   "Normal",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A2",
+   "E50A",
+   "uptake 27.5% of WT",
+   "Loss of function",
+   "0.12",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A2",
+   "L53A",
+   "uptake 76.3% of WT",
+   "Tolerated",
+   "0.08",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A2",
+   "W112A",
+   "uptake 49.3% of WT",
+   "Loss of function",
+   "0.86",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A2",
+   "I124A",
+   "uptake 81.9% of WT",
+   "Tolerated",
+   "0.07",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A2",
+   "L127A",
+   "uptake 82.8% of WT",
+   "Tolerated",
+   "0.09",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A2",
+   "E128A",
+   "uptake 31.6% of WT",
+   "Loss of function",
+   "0.68",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Uptake",
+   "SLC19A2",
+   "Q317A",
+   "uptake 78.5% of WT",
+   "Tolerated",
+   "0.31",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "F56A",
+   "Kd 0.32x WT",
+   "Tolerated",
+   "0.64",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "Q300A",
+   "Kd 0.44x WT",
+   "Tolerated",
+   "0.66",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "W59A",
+   "Kd 0.65x WT",
+   "Tolerated",
+   "0.72",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "Y113A",
+   "Kd 1.22x WT",
+   "Tolerated",
+   "0.89",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "Y151F",
+   "Kd 1.41x WT",
+   "Tolerated",
+   "0.18",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "Y151A",
+   "Kd 1.47x WT",
+   "Tolerated",
+   "0.52",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "E110Q",
+   "Kd 6.71x WT",
+   "Loss of function",
+   "0.73",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "E32K",
+   "Kd 11.46x WT",
+   "Loss of function",
+   "0.40",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "N297A",
+   "Kd 242.8x WT",
+   "Loss of function",
+   "0.20",
+   "Normal",
+   ""
+  ],
+  [
+   "Binding",
+   "SLC19A3",
+   "E110K",
+   "no binding",
+   "Loss of function",
+   "0.86",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "E320Q",
+   "",
+   "Pathogenic",
+   "0.25",
+   "Normal",
+   "training allele"
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "T422A",
+   "",
+   "Pathogenic",
+   "0.81",
+   "Likely Pathogenic",
+   "training allele"
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "E32K",
+   "",
+   "Likely Pathogenic",
+   "0.40",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "E110K",
+   "",
+   "Pathogenic",
+   "0.86",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "E110Q",
+   "",
+   "Likely Pathogenic",
+   "0.73",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "N297A",
+   "",
+   "Pathogenic",
+   "0.24",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "F56A",
+   "",
+   "Likely Benign",
+   "0.60",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "Y151F",
+   "",
+   "Likely Benign",
+   "0.18",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "N45Q",
+   "",
+   "Likely Benign",
+   "0.20",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "N166Q",
+   "",
+   "Likely Benign",
+   "0.07",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "W59R",
+   "",
+   "Likely Pathogenic",
+   "0.83",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "W94R",
+   "",
+   "Likely Pathogenic",
+   "0.87",
+   "Likely Pathogenic",
+   "training allele"
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "Y113H",
+   "",
+   "Likely Pathogenic",
+   "0.83",
+   "Likely Pathogenic",
+   "training allele"
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "E320K",
+   "",
+   "Likely Pathogenic",
+   "0.24",
+   "Normal",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "L35A",
+   "",
+   "Pathogenic",
+   "0.61",
+   "Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "I36A",
+   "",
+   "Unlabeled",
+   "0.44",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "T93A",
+   "",
+   "Unlabeled",
+   "0.28",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "W94A",
+   "",
+   "Unlabeled",
+   "0.79",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "L97A",
+   "",
+   "Unlabeled",
+   "0.83",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "V109A",
+   "",
+   "Unlabeled",
+   "0.35",
+   "Likely Benign",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "Q300A",
+   "",
+   "Unlabeled",
+   "0.66",
+   "Likely Pathogenic",
+   ""
+  ],
+  [
+   "Abstract labels",
+   "SLC19A3",
+   "I301A",
+   "",
+   "Unlabeled",
+   "0.26",
+   "Likely Benign",
+   ""
+  ]
+ ],
+ "tableS4": [
+  [
+   "Held-out P vs B: accuracy / precision / recall / specificity (%)",
+   "93.3 / 100 / 84.6 / 100",
+   "93.3 / 100.0 / 84.6 / 100.0"
+  ],
+  [
+   "Held-out P vs B: AUC",
+   "1.0",
+   "0.996"
+  ],
+  [
+   "Held-out P/LP vs B/LB: accuracy (%) / AUC",
+   "93.7 / 0.913",
+   "93.8 / 0.913"
+  ],
+  [
+   "Literature set (15): accuracy / precision / recall / specificity (%)",
+   "80 / 90 / 82 / 75",
+   "80.0 / 83.3 / 90.9 / 50.0"
+  ],
+  [
+   "Pathogenic / likely pathogenic calls among VUS and unclassified alleles",
+   "111 / 303",
+   "111 / 303"
+  ],
+  [
+   "Row-level split, abstract protocol, 5 seeds: P/LP vs B/LB AUC",
+   "\u2014",
+   "0.919 \u00b1 0.007"
+  ],
+  [
+   "Row-level split, abstract protocol, 5 seeds: P vs B AUC",
+   "\u2014",
+   "1.000 \u00b1 0.000"
+  ],
+  [
+   "Grouped CV, abstract settings, 2 repeats: P/LP vs B/LB AUC",
+   "\u2014",
+   "0.865 \u00b1 0.003"
+  ],
+  [
+   "Grouped CV, abstract settings, 2 repeats: P vs B AUC",
+   "\u2014",
+   "0.917 \u00b1 0.003"
+  ]
+ ]
+}

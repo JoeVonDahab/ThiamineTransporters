@@ -1,0 +1,14 @@
+set,tool,n_total,n_scored,n_snv,n_missense,n_missense_scored
+timesplit,triplevar,97,97,78,10,10
+timesplit,triplevar_abstract,97,97,78,10,10
+timesplit,alphamissense,97,10,78,10,10
+timesplit,revel,97,10,78,10,10
+timesplit,cadd,97,78,78,10,10
+cv_all_labels,triplevar,864,864,764,129,129
+cv_all_labels,alphamissense,864,129,764,129,129
+cv_all_labels,revel,864,130,764,129,129
+cv_all_labels,cadd,864,764,764,129,129
+cv_trusted_labels,triplevar,565,565,495,33,33
+cv_trusted_labels,alphamissense,565,33,495,33,33
+cv_trusted_labels,revel,565,34,495,33,33
+cv_trusted_labels,cadd,565,495,495,33,33
